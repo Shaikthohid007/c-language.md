@@ -7,11 +7,11 @@ int i,first=arr[1],second=arr[0];
 for(i=0;i<10;i++){
 if(arr[i]<first){
 second=first;
-frist=arr[i];
+first=arr[i];
 } else if (arr[i]<second){
 second=arr[i];
 }
 }
-printf("second smallest=%d\n",second);
+printf("second smallest=%d\n",second && arr[i]!=first);
 return 0;
 }

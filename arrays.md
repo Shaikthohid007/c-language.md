@@ -8,10 +8,10 @@ for(i=0;i<10;i++){
 if(arr[i]<first){
 second=first;
 first=arr[i];
-} else if (arr[i]<second){
+} else if (arr[i]<second && arr[i]!=first){
 second=arr[i];
 }
 }
-printf("second smallest=%d\n",second && arr[i]!=first);
+printf("second smallest=%d\n",second );
 return 0;
 }

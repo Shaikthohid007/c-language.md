@@ -2,6 +2,7 @@ control statements in c:
 if ,if else,if- else ladder,nested if ,switch.
 
 1.IF STATEMENET:
+   ```c
 if (condition)
 statement;
 the condition is true ststement is executed then false then execuete another statement.
@@ -16,6 +17,7 @@ printf("%d",a);
 }
 printf("out side if block");
 return 0;
+```
 
 * 2. IF ELSE STATEMENT:
 the condition is true then statement 1 is executed then condition is false then statement 2 is executed .

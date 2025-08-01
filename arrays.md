@@ -29,6 +29,7 @@ return 0;
 }
 ```
 ## 3. Find maximum element in array.
+```c
 #include<stdio.h>
 int main(){
 int a[10],i,max;
@@ -45,7 +46,7 @@ printf("%d\n",max);
 return 0;
 }
 ```
-## 3.Find minimum element in array.
+## 4.Find minimum element in array.
 ```c
 #include<stdio.h>
 int main(){

@@ -1,4 +1,4 @@
-1## Input and print array elements.
+## 1. Input and print array elements.
 ```c
 #include<stdio.h>
 int main(){
@@ -13,7 +13,7 @@ printf("%d\n",a[i]);
 return 0;
 }
 ```
-2##Find sum of all array elements.
+## 2. Find sum of all array elements.
 ```c
 #include<stdio.h>
 int main(){

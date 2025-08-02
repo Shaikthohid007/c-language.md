@@ -249,9 +249,90 @@ printf("%d\n",second);
 return 0;
 }
 ```
-
-
-
+## 13.Separate Positive and Negative Numbers into Two Arrays.
+```c
+#include<stdio.h>
+int main(){
+int arr[10],i,p=0,n=0;
+int posarr[10],negarr[10];
+for(i=0;i<10;i++){
+scanf("%d",&arr[i]);
+}
+for(i=0;i<10;i++){
+if(arr[i]>0){
+posarr[p]=arr[i];
+p++;
+}else if(arr[i]<0){
+negarr[n]=arr[i];
+n++;
+}
+}
+for(i=0;i<p;i++){
+printf("%d\n",posarr[i]);
+}
+printf("\n");
+for(i=0;i<n;i++){
+printf("%d\n",negarr[i]);
+}
+return 0;
+}
+```
+## 14.Count Even and Odd Numbers in an Array.
+```c
+#include<stdio.h>
+int main(){
+int arr[10],e=0,o=0,i;
+int evenarr[10],oddarr[10];
+for(i=0;i<10;i++){
+scanf("%d",&arr[i]);
+}
+for(i=0;i<10;i++){
+if(arr[i]%2==0){
+evenarr[e]=arr[i];
+e++;
+}else if(arr[i]%2!=0){
+oddarr[o]=arr[i];
+o++;
+}
+}
+for(i=0;i<e;i++){
+printf("%d",evenarr[i]);
+}
+for(i=0;i<o;i++){
+printf("%d",oddarr[i]);
+}
+return 0;
+}
+```
+## 15.Find the difference between sum of even and odd elements.
+```c
+#include<stdio.h>
+int main(){
+int arr[10],e=0,o=0,i,sumeven=0,oddsum=0,result;
+int evenarr[10],oddarr[10];
+for(i=0;i<10;i++){
+scanf("%d",&arr[i]);
+}
+for(i=0;i<10;i++){
+if(arr[i]%2==0){
+evenarr[e]=arr[i];
+e++;
+}else if(arr[i]%2!=0){
+oddarr[o]=arr[i];
+o++;
+}
+}
+for(i=0;i<e;i++){
+sumeven+=evenarr[i];
+}
+for(i=0;i<o;i++){
+oddsum+=oddarr[i];
+}
+result=evensum-oddsum;
+printf("%d\n",result);
+return 0;
+}
+```
 
 
 

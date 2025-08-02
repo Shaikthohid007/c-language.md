@@ -333,9 +333,68 @@ printf("%d\n",result);
 return 0;
 }
 ```
-
-
-
+## 16.Write a C program to rotate an array to the right by 1 position.
+```c
+#include<stdio.h>
+int main(){
+int arr[5],i,last;
+for(i=0;i<5;i++){
+scanf("%d",&arr[i]);
+}
+last=arr[4];
+for(i=4;i>0;i--){
+arr[i]=arr[i-1];
+}
+arr[0]=last;
+printf("after rotate an array\n");
+for(i=0;i<5;i++){
+printf("%d\n",arr[i]);
+}
+return 0;
+}
+```
+## 17. Left Rotate Array by One Position.
+```c
+#include<stdio.h>
+int main(){
+int arr[i],i,first;
+for(i=0;i<5;i++){
+scanf("%d",&arr[i]);
+}
+first=arr[0];
+for(i=0;i<4;i++){
+arr[i]=arr[i+1];
+}
+arr[4]=first;
+printf("after the left by one position\n");
+for(i=0;i<5;i++){
+printf("%d",arr[i]);
+}
+return 0;
+}
+```
+##  18.Write a C program to left rotate the array by k positions.
+```c
+#include<stdio.h>
+int main(){
+int arr[5],i;
+int temp[2];
+for(i=0;i<5;i++){
+scanf("%d",&arr[i]);
+}
+temp[0]=arr[0];
+temp[1]=arr[1];
+for(i=0;i<3;i++){
+arr[i]=arr[i+1];
+}
+arr[3]=temp[0];
+arr[4]=temp[1];
+printf("after rotate\n");
+for(i=0;i<5;i++){
+printf("%d\n",arr[i]);
+}
+return 0;
+}
 
 
 

@@ -395,6 +395,52 @@ printf("%d\n",arr[i]);
 }
 return 0;
 }
+```
+## 19.Insert an element at a given position in the array.
+```c
+#include<stdio.h>
+int main(){
+int arr[5]={10,20,30,40,50};
+int i,pos,i,elem;
+printf("enter the position\n");
+scanf("%d\n",&pos);
+printf("enter the element\n");
+scanf("%d\n",&elem);
+for(i=5;i>pos;i++){
+arr[i]=arr[i+1];
+}
+arr[pos]=elem;
+i++;
+printf("after insert\n");
+for(i=0;i<5;i++){
+printf("%d\n",arr[i]);
+}
+return 0;
+}
+```
+## 20.delete the position in array.
+```c
+#include<stdio.h>
+int main(){
+int arr[5]={10,20,30,40,50};
+int i,pos;
+printf("enter the position\n");
+scanf("%d",&pos);
+for(i=pos;i<4;i++){
+        arr[i]=arr[i+1];
+}
+printf("after deleting\n");
+for(i=0;i<4;i++){
+        printf("%d\n",arr[i]);
+}
+return 0;
+}
+```
+
+
+
+
+
 
 
 

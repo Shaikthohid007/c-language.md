@@ -547,6 +547,29 @@ printf("\n");
 return 0;
 }
 ```
+## 25.program to find the matrix is sparse or not.
+```c
+#include<stdio.h>
+int main(){
+int a[i][j],i,j,total,zerocount=0;
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+scanf("%d"&a[i][j]);
+if(a[i][j]==0){
+zerocount++;
+}
+}
+}
+total=3*3;
+if(zerocount>total/2){
+printf("is a sparse matrix\n");
+} else {
+printf("not sparse\n");
+}
+return 0;
+}
+```
+## 26.
 
 
 

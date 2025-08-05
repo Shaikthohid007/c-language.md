@@ -406,11 +406,10 @@ printf("enter the position\n");
 scanf("%d\n",&pos);
 printf("enter the element\n");
 scanf("%d\n",&elem);
-for(i=5;i>pos;i++){
-arr[i]=arr[i+1];
+for(i=5;i>pos;i--){
+arr[i]=arr[i-1];
 }
 arr[pos]=elem;
-i++;
 printf("after insert\n");
 for(i=0;i<5;i++){
 printf("%d\n",arr[i]);
@@ -569,9 +568,26 @@ printf("not sparse\n");
 return 0;
 }
 ```
-## 26.
-
-
+## 26. write a program to print the repeating elements in array.
+```c
+#include<stdio.h>
+int main(){
+int arr[5],i,j,count;
+for(i=0;i<5;i++){
+scanf("%d"&a[i][j]);
+}
+for(i=0;i<5;i++){
+count=1;
+for(j=i+1;j<5;j++){
+if(arr[i]==arr[j])
+count++;
+}
+}
+if(count>1)
+printf("%d is %s times\n",arr[i],count);
+return 0;
+}
+```
 
 
 

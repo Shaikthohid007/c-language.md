@@ -436,8 +436,117 @@ for(i=0;i<4;i++){
 return 0;
 }
 ```
-
-
+## 21. Write a program in C for a 2D array of size 3x3 and print the matrix.
+```c
+#include<stdio.h>
+int main(){
+int a[3][3],i,j;
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+scanf("%d",&a[i][j]);
+}
+}
+printf("print the 3x3 matrix\n");
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+printf("%d\t",a[i][j]);
+}
+printf("\n");
+}
+return 0;
+}
+```
+## 22.Write a program in C for the multiplication of two square matrices.
+```c
+#include<stdio.h>
+int main(){
+int a[2][3],b[3][2],c[2][2],i,j,k;
+for(i=0;i<2;i++){
+for(j=0;j<3;j++){
+scanf("%d",&a[i][j]);
+}
+}
+for(i=0;i<3;i++){
+for(j=0;j<2;j++){
+scanf("%d",&b[i][j]);
+}
+}
+for(i=0;i<2;i++){
+for(j=0;j<2;j++){
+c[i][j]=0;
+for(k=0;k<3;k++){
+c[i][j]+=a[i][j]*b[i][j];
+}
+}
+}
+prinrf("mul of matrix\n");
+for(i=0;i<2;i++){
+for(j=0;j<2;j++){
+printf("%d\t",c[i][j]);
+}
+printf("\n");
+}
+return 0;
+}
+```
+## 23. write a program lower triangle matrix.
+```c
+#include<stdio.h>
+int main(){
+int a[3][3],i,j;
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+scanf("%d",&a[i][j]);
+}
+}
+printf("print the matrix \n");
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+printf("%d\t",a[i][j]);
+}
+printf("\n");
+}
+printf("print the lower triangle\n");
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+if(i>=j){
+printf("%d\t",a[i][j]);
+}
+}
+printf("\n");
+}
+return 0;
+}
+```
+## 24. write a program to print the upper triangle.
+```c
+#include<stdio.h>
+int main(){
+int a[3][3],i,j;
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+scanf("%d",&a[i][j]);
+}
+}
+printf("print the matrix\n");
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+printf("%d",a[i][j]);
+}
+printf("\n");
+}
+printf("print the upper matrix\n");
+for(i=0;i<3;i++){
+for(j=0;j<3;j++){
+if(i<=j){
+printf("%d\t",a[i][j]);
+}
+}
+printf("\n");
+}
+return 0;
+}
+```
 
 
 

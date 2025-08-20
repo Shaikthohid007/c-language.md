@@ -637,5 +637,57 @@ int main(){
         return 0;
 }
 ```
+## 29. Write a program to write all the elements of 2-D Array into !-D Array in row wise.
+```c
+#include<stdio.h>
+int main(){
+        int arr2[2][3];
+        int arr1[6];
+        int i,j,d;
 
+        printf("enter the 2D array\n");
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&arr2[i][j]);
+                        }
+        }
+
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        arr1[d]=arr2[i][j];
+                        d++;
+                }
+        }
+        for(i=0;i<6;i++){
+                printf("%d\n",arr1[i]);
+        }
+        return 0;
+}
+```
+## 30 .  C Program to Print all Non Repeated Elements in an Array.
+```c
+#include<stdio.h>
+int main(){
+          int arr[10];
+          int i,j,count;
+          printf("enter the array\n");
+          for(i=0;i<5;i++){
+          scanf("%d",&arr[i]);
+          }
+
+          for(i=0;i<5;i++){
+                  count=0;
+                  for(j=0;j<5;j++){
+                          if(arr[i]==arr[j]){
+                                  count++;
+                          }
+                  }
+
+          if(count==1){
+                  printf("%d\n",arr[i]);
+          }
+          }
+          return 0;
+          }
+```
 

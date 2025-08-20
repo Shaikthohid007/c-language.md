@@ -588,7 +588,54 @@ printf("%d is %s times\n",arr[i],count);
 return 0;
 }
 ```
-## 27.
+## 27.Write a program to check if elements of an array are distinct or not.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10];
+        int i,j;
+        printf("enter the array\n");
+        for(i=0;i<5;i++){
+                scanf("%d",&arr[i]);
+        }
 
+        for(i=0;i<5;i++){
+                for(j=i+1;j<5;j++){
+                        if(arr[i]==arr[j]){
+                                printf("is a not  distinct \n");
+                                return 0;
+
+                        }
+                }
+        }
+        printf("is  a distunct\n");
+        return 0;
+}
+```
+##  28. Write a program to write whether a matrix is symmetric or not.
+```c
+#include<stdio.h>
+int main(){
+        int arr[3][3];
+        int i,j;
+        printf("enter the 2D matrix\n");
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&arr[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        if(arr[i][j]!=arr[j][i]){
+                                printf("is a  not symmetrix\n");
+                                return 0;
+                        }
+                }
+        }
+        printf("is  a symmetrix\n");
+        return 0;
+}
+```
 
 

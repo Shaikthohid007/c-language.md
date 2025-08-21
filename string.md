@@ -5,7 +5,9 @@
 int main(){
         char str[10]="thohid";
         int i;
+
         printf("print the string\n");
+
         for(i=0;str[i]!='\0';i++){
                 printf("%c\n",str[i]);
         }
@@ -19,6 +21,7 @@ int main(){
 int main(){
         char str[10];
         int i,length=0;
+
         printf("enter the character\n");
         fgets(str,10,stdin);
 
@@ -55,12 +58,16 @@ int main(){
 int main(){
         char str[10];
         int i,len;
+
         printf("enter the string\n");
         fgets(str,10,stdin);
+
         str[strcspn(str,"\n")]='\0';
+
         printf("print the reverse string\n");
         len=strlen(str);
         for(i=len-1;i>=0;i--){
+
                 printf("%c\n",str[i]);
         }
         return 0;
@@ -73,9 +80,12 @@ int main(){
 int main(){
         char str[100];
         int i,count=0;
+
         printf("enter the words\n");
         fgets(str,100,stdin);
+
         printf("print the count of words\n");
+
         for(i=0;str[i]!='\0';i++){
                 if(str[i]!=' ' && (str[i+1]==' '|| str[i+1]=='\0')){
                 count++;
@@ -93,12 +103,16 @@ int main(){
 int main(){
         char str1[10],str2[10];
         int i;
+
         printf("enter the string\n");
         fgets(str1,10,stdin);
         fgets(str2,10,stdin);
+
         str1[strcspn(str1,"\n")]='\0';
         str2[strcspn(str2,"\n")]='\0';
+
         printf("print the compare\n");
+
         for(i=0;str1[i]!='\0' && str2[i]!='\0';i++){
                 if(str1[i]!=str2[i]){
                         break;
@@ -145,8 +159,10 @@ int main(){
         char str[100];
         char str2[100];
         int i,j=0;
+
         printf("enter the string\n");
         fgets(str,100,stdin);
+
         str[strcspn(str,"\n")]='\0';
 
         printf("print another array\n");
@@ -168,9 +184,12 @@ int main(){
 int main(){
         char str[100];
         int i,vowcount=0,conscount=0;
+
         printf("enter the string\n");
         fgets(str,100,stdin);
+
         printf("print vowels and consonents\n");
+
         for(i=0;str[i]!='\0';i++){
                 if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u'){                        vowcount++;
                 }
@@ -190,9 +209,12 @@ int main(){
 int main(){
         char str[100];
         int j,i,count;
+
         printf("enter the string\n");
         fgets(str,100,stdin);
+
         printf("print the maximum\n");
+
         for(i=0;str[i]!='\0';i++){
                 count=1;
                 for(j=i+1;str[j]!='\0';j++){
@@ -214,9 +236,12 @@ int main(){
 int main(){
         char str[100];
         int i,j;
+
         printf("enter the string\n");
         fgets(str,100,stdin);
+
         printf("after sort ascending order\n");
+
         for(i=0;str[i]!='\0';i++){
                 for(j=i+1;str[j]!='\0';j++){
                 if(str[i]>str[j]){

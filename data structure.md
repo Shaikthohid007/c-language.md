@@ -1,1 +1,329 @@
+## 1. single linkedlist.
+```c
+#include<stdio.h>
+#include<stdlib.h>
 
+ struct node{
+         int data ;
+         struct node* next;
+ };
+ void printlist(struct node* head){
+         struct node* temp=head;
+         while(temp!=NULL){
+                 printf("%d->",temp->data);
+                 temp=temp->next;
+         }
+         printf("NULL\n");
+ }
+int main(){
+        struct node* head=(struct node*)malloc(sizeof(struct node));
+         struct node* second=(struct node*)malloc(sizeof(struct node));
+          struct node* third=(struct node*)malloc(sizeof(struct node));
+
+          head->data=10;
+          head->next=second;
+
+          second->data=20;
+          second->next=third;
+
+          third->data=30;
+          third->next=NULL;
+
+          printlist(head);
+          return 0;
+}
+```
+## 2. insert the element at begining in linkedlist.c
+```c
+#include<stdio.h>
+#include<stdlib.h>
+
+  struct node{
+          int data;
+          struct node *link;
+  };
+  int main(){
+          struct node *head=malloc(sizeof(struct node));
+          head->data=12;
+          head->link = NULL;
+
+          struct node *second=malloc(sizeof(struct node));
+          second->data=11;
+          second->link = NULL;
+          head->link=second;
+
+          struct node *third=malloc(sizeof(struct node));
+          third->data=10;
+          third->link = NULL;
+          second->link = third;
+
+          struct node *newnode=malloc(sizeof(struct node));
+          newnode->data=9;
+          newnode->link= head;
+          head=newnode;
+
+          struct node *temp=head;
+          while(temp!=NULL){
+                  printf("%d->",temp->data);
+          temp=temp->link;
+          }
+          printf("NULL\n");
+                  return 0;
+  }
+```
+## 3. insert the element at last in linkedlist.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+        int data;
+        struct node *link;
+};
+ int main(){
+         struct node *head=malloc(sizeof(struct node));
+         head->data=12;
+         head->link=NULL;
+
+         struct node *second=malloc(sizeof(struct node));
+         second->data=13;
+         second->link=NULL;
+         head->link=second;
+
+         struct node *third=malloc(sizeof(struct node));
+         third->data=14;
+         third->link=NULL;
+         second->link=third;
+
+         struct node *lastnode,*temp;
+         lastnode=malloc(sizeof(struct node));
+         lastnode->data=15;
+         lastnode->link=NULL;
+
+         temp=head;
+         while(temp->link!=NULL){
+                 temp=temp->link;
+         }
+         temp->link=lastnode;
+
+
+         temp=head;
+
+         while(temp!=NULL){
+                 printf("%d->",temp->data);
+                 temp=temp->link;
+         }
+         printf("NULL\n");
+         return 0;
+}
+```
+## 4. inset the element at given position in linkedlist.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int pos;
+struct node{
+        int data;
+        struct node *link;
+};
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->link=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=12;
+        second->link=NULL;
+        head->link=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=14;
+        third->link=NULL;
+        second->link=third;
+
+        struct node *midnode,*temp;
+        midnode=malloc(sizeof(struct node));
+        midnode->data=20;
+        midnode->link=NULL;
+
+
+        scanf("%d",&pos);
+        if(pos==1){
+                midnode->link=head;
+                head=midnode;
+        }else{
+                temp=head;
+                for(int i=1;i<pos-1;i++)
+                        temp=temp->link;
+        if (temp==NULL){
+                printf("invalid\n");
+        }
+
+
+        midnode->link=temp->link;
+        temp->link=midnode;
+        }
+
+        temp=head;
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->link;
+        }
+        printf("NULL\n");
+        return 0;
+}
+```
+## 5.reverse the single linkedlist.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+ int pos,i;
+ struct node{
+         int data;
+         struct node* link;
+ };
+  int main(){
+          struct node *head=malloc(sizeof(struct node));
+          head->data=23;
+          head->link=NULL;
+
+          struct node *second=malloc(sizeof(struct node));
+          second->data=53;
+          second->link=NULL;
+          head->link=second;
+
+           struct node *third=malloc(sizeof(struct node));
+          third->data=98;
+          third->link=NULL;
+          second->link=third;
+
+          struct node *temp=head;
+          printf("before\n");
+
+          while(temp!=NULL){
+                  printf("%d->",temp->data);
+                  temp=temp->link;
+          }
+          printf("NULL\n");
+
+          struct node *prenode,*currentnode,*nextnode;
+          prenode=NULL;
+          nextnode=currentnode=head;
+          while(nextnode!=NULL){
+                  nextnode=nextnode->link;
+                  currentnode->link=prenode;
+                  prenode=currentnode;
+                  currentnode=nextnode;
+          }
+          head=prenode;
+
+          temp=head;
+          printf("after\n");
+          while(temp!=NULL){
+                  printf("%d->",temp->data);
+                  temp=temp->link;
+          }
+          printf("NULL\n");
+          return 0;
+  }
+```
+## 6.count the single linkedlist.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+ int pos,i;
+ struct node{
+         int data;
+         struct node* link;
+ };
+  int main(){
+          struct node *head=malloc(sizeof(struct node));
+          head->data=23;
+          head->link=NULL;
+
+          struct node *second=malloc(sizeof(struct node));
+          second->data=53;
+          second->link=NULL;
+          head->link=second;
+
+           struct node *third=malloc(sizeof(struct node));
+          third->data=98;
+          third->link=NULL;
+          second->link=third;
+
+           struct node *four=malloc(sizeof(struct node));
+          four->data=92;
+          four->link=NULL;
+          third->link=four;
+
+          struct node *temp=head;
+
+          while(temp!=NULL){
+                  printf("%d->",temp->data);
+                  temp=temp->link;
+          }
+          printf("NULL\n");
+
+
+          int count=0;
+          temp=head;
+          while(temp!=NULL){
+                  count++;
+                  temp=temp->link;
+          }
+          printf("count=%d\n",count);
+          return 0;
+  }
+```
+## 7. delet the element in begining in single linkedlist.c
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+        int data;
+        struct node *link;
+};
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=12;
+        head->link=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=22;
+        second->link=NULL;
+        head->link=second;
+
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=32;
+        third->link=NULL;
+        second->link=third;
+
+        struct node *temp=head;
+
+        printf("before deleting\n");
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->link;
+        }
+        printf("NULL\n");
+
+        temp=head;
+        head=head->link;
+        free(temp);
+
+         temp=head;
+
+        printf("after\n");
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->link;
+
+        }
+        printf("NULL\n");
+        return 0;
+}
+```
+
+               

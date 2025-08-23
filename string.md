@@ -286,6 +286,29 @@ int main(){
 ```
 ## 13.Write a program in C to extract a substring from a given string.
 ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],sun[100];
+        int pos,leni,j=0;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        scanf("%d",&pos);
+
+        scanf("%d",&leni);
+
+        for(int i=pos;i<pos+leni && str[i]!='\0';i++){
+                sun[j]=str[i];
+                j++;
+        }
+        sun[j]='\0';
+        printf("%s\n",sun);
+        return 0;
+}
+```
 
 
 

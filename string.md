@@ -309,6 +309,153 @@ int main(){
         return 0;
 }
 ```
+## 14. Write a C program to check whether a substring is present in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],sun[100];
+        int i,j,found=0;
+
+
+        printf("enter the enter string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        printf("enter the sub string\n");
+        fgets(sun,100,stdin);
+        sun[strcspn(sun,"\n")]='\0';
+
+        for(i=0;i<=strlen(str)-strlen(sun);i++){
+                for(j=0;j<strlen(sun);j++){
+                if(str[i+j]!=sun[j]){
+                        break;
+                }
+        }
+                if(j==strlen(sun)){
+                        found=1;
+                        break;
+                }
+        }
+
+
+        if(found==1)
+                printf("is present\n");
+        else
+                printf("is not present\n");
+        return 0;
+}
+```
+## 15.. Write a program in C to read a sentence and replace lowercase characters with uppercase and vice versa.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+        //      str[i]=str[i]-32;// this is for uppercase.
+
+                str[i]=str[i]+32;// this is for lowercase.
+
+        }
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 16. Write a program in C to find the number of times a given word 'the' appears in the given string.
+## 17. Write a program in C to remove characters from a string except alphabets.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],sta[100];
+        int i,j=0;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]>='a' && str[i]<'z'){
+                        sta[j]=str[i];
+                        j++;
+                }
+        }
+        sta[j]='\0';
+        printf("%s\n",sta);
+        return 0;
+}
+```
+## 18. Write a program in C to find the frequency of characters.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,j,count,alreadycount;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                alreadycount=0;
+                for(j= 0;j<i;j++){
+                        if(str[i]==str[j]){
+                                alreadycount=1;
+                                break;
+                        }
+                }
+                if(!alreadycount){
+                        count=0;
+                        for(j=0;str[j]!='\0';j++){
+                                if(str[i]==str[j]){
+                                        count++;
+                                }
+                        }
+
+
+
+        printf("%c and %d\n",str[i],count);
+        }
+        }
+        return 0;
+}
+```
+## 19.Write a program in C to combine two strings manually.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],str1[100];
+        int i,j;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        printf("enter the 2nd string\n");
+        fgets(str1,100,stdin);
+        str1[strcspn(str1,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++);
+                for(j=0;str[j]!='\0';j++){
+                str[i+j]=str1[j];
+        }
+        str[i+j]='\0';
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 20. Write a program in C to find the largest and smallest words in a string.
+```c
+
 
 
 

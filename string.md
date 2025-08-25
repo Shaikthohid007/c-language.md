@@ -620,7 +620,7 @@ int main(){
                 return 0;
         }
 ```
-## 32. Write a program in C to split strings by space into words.
+## 31. Write a program in C to split strings by space into words.
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -642,6 +642,53 @@ int main(){
         return 0;
 }
 ```
+## 32. Write a C program to find the repeated character in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,j,count;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                count=1;
+                for(j=i+1;str[j]!='\0';j++){
+                        if(str[i]==str[j]){
+                                count++;
+                        }
+                }
+
+        printf("%c =%d\n",str[i],count);
+        }
+        return 0;
+}
+```
+## 33. Write a C program to count each character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,j,count=0;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                count++;
+        }
+        printf("%d\n",count);
+        return 0;
+}
+```
+## 34.. Write a C program to convert vowels into uppercase characters in a string.
+```c
+
 
 
 

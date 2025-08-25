@@ -688,6 +688,27 @@ int main(){
 ```
 ## 34.. Write a C program to convert vowels into uppercase characters in a string.
 ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u'){                        str[i]=str[i]-32;
+                }
+        }
+        printf("%s\n",str);
+        return 0;
+}
+```
+ ## 35.Write a C program to find the length of the longest substring of a given string without repeating characters.
+ ```c
+
 
 
 

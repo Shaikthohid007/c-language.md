@@ -454,6 +454,194 @@ int main(){
 }
 ```
 ## 20. Write a program in C to find the largest and smallest words in a string.
+## 21. Write a program in C to convert a string to uppercase.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        printf("print the uppercase letter\n");
+
+        for(i=0;str[i]!='\0';i++){
+                str[i]=str[i]-32;
+        }
+
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 22. Write a program in C to convert a string to lowercase.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        printf("print the lowercase\n");
+
+        for(i=0;str[i]!='\0';i++){
+                str[i]=str[i]+32;
+        }
+
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 23.. Write a program in C to check whether a character is a Hexadecimal Digit or not.
+## 24. Write a program in C to check whether a letter is uppercase or not.
+```c
+#include<stdio.h>
+int main(){
+        char ch;
+
+        printf("enter the character\n");
+        scanf("%c",&ch);
+
+        if(ch>='A' && ch<='Z'){
+                printf("is present \n");
+        } else {
+                printf("is not\n");
+        }
+return 0;
+}
+```
+## 25.. Write a program in C to replace the spaces in a string with a specific character.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+
+        printf("print after adding the special character in spacee\n");
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]==' '){
+                        str[i]='^';
+
+                }
+        }
+
+
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 26.Write a program in C to count the number of punctuation characters present in a string..
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,count=0;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        printf("print how many punctuation character in string\n");
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]=='.' || str[i]==',' || str[i]=='?' || str[i]=='/' ){
+                        count++;
+                }
+        }
+
+        printf("count=%d\n",count);
+        return 0;
+}
+```
+## 27.. Write a program in C to print only the string before the new line character.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+
+        str[strcspn(str,"\n")]='\0';
+
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 28.. Write a program in C to check whether a letter is lowercase or not.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char ch;
+
+        printf("enter the character \n");
+        scanf("%c",&ch);
+
+        if(ch>='a' && ch<='z')
+                printf("is a  lower character\n");
+        else
+                printf("is not a lower\n");
+        return 0;
+}
+```
+## 29. Write a program in C to read a file and remove the spaces between two words of its content.
+## 30.Write a program in C to check whether a character is a digit or not.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+                if(str[i]>='0' && str[i]<='9')
+                        printf("is a digit\n");
+                else
+                        printf("is not a digit\n");
+                return 0;
+        }
+```
+## 32. Write a program in C to split strings by space into words.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]==' ')
+
+                        printf("\n");
+                else
+                        printf("%c\n",str[i]);
+        }
+        return 0;
+}
+```
 
 
 

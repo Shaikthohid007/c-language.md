@@ -690,4 +690,700 @@ int main(){
           return 0;
           }
 ```
+## 31. Write a program in C to read n number of values in an array and display them in reverse order.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10],i;
+        for(i=0;i<5;i++){
+                scanf("%d",&arr[i]);
+        }
+        printf("array element\n");
+        for(i=0;i<5;i++){
+                printf("%d\n",arr[i]);
+        }
+        return 0;
+}
+```
+## 32. Write a program in C to find the sum of all elements of the array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10],i,sum=0;
+        for(i=0;i<5;i++){
+                scanf("%d",&arr[i]);
+        }
+        printf("sum of programs\n");
+        for(i=0;i<5;i++){
+                sum=sum+arr[i];
+        }
+        printf("%d\n",sum);
+        return 0;
+}
+```
+## 33.. Write a program in C to copy the elements of one array into another array.
+```c
+#include<stdio.h>
+int main(){
+        int arr1[10],arr2[20],i;
+        for(i=0;i<5;i++){
+                scanf("%d",&arr1[i]);
+        }
+        for(i=0;i<5;i++){
+                arr2[i]=arr1[i];
+        }
+        printf("another loop\n");
+        for(i=0;i<5;i++){
+        printf("%d\n",arr2[i]);
+        }
+        return 0;
+}
+```
+## 34. Write a program in C to count the total number of duplicate elements in an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10]={1,3,2,3,2,1,3};
+        int i,j,count;
+        int visited[10]={0};
+        for(i=0;i<7;i++){
+                if(visited[i]==1)
+                        continue;
+        count=1;
+                for(j=i+1;j<7;j++){
+                        if(arr[i]==arr[j]){
+                                count++;
+                                visited[j]=1;
+                        }
+                }
+                if(count>1){
+        printf("%d is duplicate %d times\n",arr[i],count);
+        }
+        }
+        return 0;
+}
+```
+## 35. Write a program in C to print all unique elements in an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,3,2,1};
+        int i,j,count=0;
+        for(i=0;i<5;i++){
+                count=0;
+                for(j=0;j<5;j++){
+                        if(arr[i]==arr[j])
+                                count++;
+                        }
+        if(count==1){
+                printf("%d\n",arr[i]);
+        }
+        }
+        return 0;
+}
+```
+## 36. Write a program in C to merge two arrays of the same size sorted in descending order.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={10,23,3,43,51};
+        int arr2[5]={64,7,8,9,120};
+        int dec[20];
+        int i,j,d=0,temp;
+        for(i=0;i<5;i++){
+                dec[d]=arr[i];
+                d++;
+        }
+        for(i=0;i<5;i++){
+                dec[d]=arr2[i];
+                d++;
+        }
+        for(i=0;i<d;i++){
+                printf("%d\n",dec[i]);
+        }
+        printf("desending order\n");
+        for(i=0;i<d-1;i++){
+                for(j=i+1;j<d;j++){
+                        if(dec[i]<dec[j]){
+                                temp=dec[i];
+                                dec[i]=dec[j];
+                                dec[j]=temp;
+                        }
+                }
+        }
+        for(i=0;i<d;i++){
+                printf("%d\n",dec[i]);
+        }
+        return 0;
+}
+```
+## 37. Write a  program in C to count the frequency of each element of an array.
+```c
+
+#include<stdio.h>
+int main(){
+        int arr[10]={1,2,2,1,3};
+        int i,j,freq;
+        int visited[10]={0};
+        for(i=0;i<5;i++){
+                if(visited[i]==1)
+
+                        continue;
+                freq=1;
+                for(j=i+1;j<5;j++){
+                        if(arr[i]==arr[j]){
+                                freq++;
+                                visited[j]=1;
+                        }
+                }
+                        printf("%dis %d times\n",arr[i],freq);
+
+        }
+        return 0;
+}
+```
+## 38. Write a program in C to find the maximum and minimum elements in an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10]={1,2,3,4,5,6,7,8,9,10};
+        int i,j,max=arr[0],mim=arr[0];
+        for(i=0;i<10;i++){
+                if(arr[i]>max){
+                        max=arr[i];
+                }else if (arr[i]<mim){
+                        mim=arr[i];
+                }
+        }
+                printf("%d %d\n",mim,max);
+                return 0;
+}
+```
+## 39.Write a program in C to separate odd and even integers into separate arrays.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,3,4,5};
+        int evenarr[5],oddarr[5];
+        int i,e=0,o=0;
+        for(i=0;i<5;i++){
+        if(arr[i]%2==0){
+                evenarr[e]=arr[i];
+                e++;
+        } else {
+                oddarr[o]=arr[i];
+                o++;
+        }
+        }
+        printf("print thr even numbers\n");
+        for(i=0;i<e;i++){
+                printf("%d\n",evenarr[i]);
+        }
+        printf("print the odd numbers\n");
+        for(i=0;i<o;i++){
+                printf("%d\n",oddarr[i]);
+        }
+        return 0;
+}
+```
+## 40. Write a program in C to sort elements of an array in ascending order.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={12,3,44,1,6};
+        int i,temp;
+        for(i=0;i<5;i++){
+                for(int j=i+1;j<5;j++){
+                        if(arr[i]>arr[j]){
+                                temp=arr[i];
+                                arr[i]=arr[j];
+                                arr[j]=temp;
+                        }
+                }
+        }
+        printf("asecendind order\n");
+        for(i=0;i<5;i++){
+                printf("%d\n",arr[i]);
+        }
+        return 0;
+}
+```
+## 41.Write a program in C to sort the elements of the array in descending order.
+```c
+#include<stdio.h>
+int main(){
+         int arr[5]={11,2,5,66,1};
+         int i,j,temp;
+         for(i=0;i<5;i++){
+                 for(j=i+1;j<5;j++){
+                         if(arr[i]<arr[j]){
+                                 temp=arr[i];
+                                 arr[i]=arr[j];
+                                 arr[j]=temp;
+                         }
+                 }
+         }
+         printf("print  the decsecinding\n");
+         for(i=0;i<5;i++){
+                 printf("%d\n",arr[i]);
+         }
+         return 0;
+}
+```
+## 42. Write a program in C to delete an element at a desired position from an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10]={1,2,3,4,5};
+        int size=5,pos,i;
+        printf("enter the postion\n");
+        scanf("%d",&pos);
+
+        for(i=pos-1;i<size-1;i++){
+                arr[i]=arr[i+1];
+        }
+        size--;
+
+        printf("print the after deleting\n");
+        for(i=0;i<size;i++){
+                printf("%d\n",arr[i]);
+        }
+        return 0;
+}
+```
+## 43. Write a program in C to find the second largest element in an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10]={1,2,3,4,5};
+        int i,first=arr[0],second=arr[0];
+
+        for(i=0;i<5;i++){
+                if(arr[i]>first){
+                        second=first;
+                        first=arr[i];
+                }else if(arr[i]>second){
+                        second=arr[i];
+                }
+
+        }
+        printf("%d\n",second);
+        return 0;
+}
+```
+## 44.. Write a program in C to find the second smallest element in an array.
+```c
+#include<stdio.h>
+#include<limits.h>
+int main(){
+        int arr[10]={1,2,3,4,5};
+        int i,first=INT_MAX,second=INT_MAX;
+
+        for(i=0;i<5;i++){
+                if(arr[i]<first){
+                        second=first;
+                        first=arr[i];
+                }
+                else if (arr[i]<second){
+                        second=arr[i];
+                }
+        }
+        printf("%d\n",second);
+        return 0;
+}
+```
+## 45.. Write a program in C for a 2D array of size 3x3 and print the matrix.
+```c
+#include<stdio.h>
+int main(){
+        int a[3][3]={1,2,3,4,5,6,7,8,9};
+        int i,j;
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        printf("%d\t",a[i][j]);
+                }
+                printf("\n");
+        }
+        return 0;
+}
+```
+## 46.Write a program in C for adding two matrices of the same size.
+```c
+#include<stdio.h>
+int main(){
+        int a1[2][2]={1,2,3,4};
+        int a2[2][2]={1,2,3,4};
+        int i,j;
+        for(i=0;i<2;i++){
+                for(j=0;j<2;j++){
+                        int sum=sum+a[i][j];
+                }
+                        printf("%d\n",sum);
+        }
+        return 0;
+}
+```
+## 47. Write a program in C for the subtraction of two matrices.
+## 48. Write a program in C for the multiplication of two square matrices.
+```c
+#include<stdio.h>
+int main(){
+        int a[2][3],b[3][2],c[2][2];
+        int i,j,k;
+
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<2;j++){
+                        scanf("%d",&b[i][j]);
+                }
+        }
+
+        for(i=0;i<2;i++){
+                for(j=0;j<2;j++){
+                        c[i][j]=0;
+                        for(k=0;k<3;k++){
+                                c[i][j]+=a[i][k]*b[k][j];
+                        }
+                }
+        }
+
+        printf("print the mul matrix\n");
+
+        for(i=0;i<2;i++){
+                for(j=0;j<2;j++){
+                        printf("%d\t",c[i][j]);
+                }
+                printf("\n");
+        }
+        return 0;
+}
+```
+## 49. Write a program in C to find the transpose of a given matrix.
+```c
+#include<stdio.h>
+int main(){
+        int a[2][3],i,j;
+
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+
+        printf("printf the matrix\n");
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        printf("%d\t",a[i][j]);
+                }
+                printf("\n");
+        }
+
+        printf("transpode matrix\n");
+
+        for(i=0;i<3;i++){
+                for(j=0;j<2;j++){
+                        printf("%d\t",a[j][i]);
+                }
+                printf("\n");
+        }
+        return 0;
+}
+```
+## 50. Write a program in C to find the sum of the right diagonals of a matrix.
+```c
+#include<stdio.h>
+int main(){
+        int a[3][3],i,j,sum=0;
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        printf("%d\t",a[i][j]);
+                }
+                printf("\n");
+        }
+
+        printf("print the right diginal\n");
+        for(i=0;i<3;i++){
+                        printf("%d\t",a[i][i]);
+
+        }
+        printf("\n");
+        printf("sum of digional\n");
+        for(i=0;i<3;i++){
+                sum+=a[i][i];
+        }
+        printf("%d\n",sum);
+
+
+        return 0;
+}
+```
+## 51. Write a program in C to find the sum of the left diagonals of a matrix.
+```c
+#include<stdio.h>
+int main(){
+        int a[3][3],i,j,sum=0;
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        printf("%d\t",a[i][j]);
+                }
+                printf("\n");
+        }
+
+        printf("print the left diginal\n");
+        for(i=0;i<3;i++){
+                        printf("%d\t",a[i][3-i-1]);
+
+        }
+        printf("\n");
+        printf("sum of digional\n");
+        for(i=0;i<3;i++){
+                sum+=a[i][3-i-1];
+        }
+        printf("%d\n",sum);
+
+
+        return 0;
+}
+```
+## 52. Write a program in C to find the sum of rows and columns of a matrix.
+```c
+#include<stdio.h>
+int main(){
+        int a[3][3]={1,2,3,4,5,6,7,8,9};
+        int i,j,sr,sc;
+
+        for(i=0;i<3;i++){
+                sr=0;sc=0;
+                for(j=0;j<3;j++){
+                        sr+=a[i][j];
+                        sc+=a[i][j];
+                }
+                printf("sr=%d and sc=%d\n",sr,sc);
+        }
+        return 0;
+}
+```
+## 53. Write a program in C to print or display the lower triangular of a given matrix.
+```c
+#include<stdio.h>
+int main(){
+int a[3][3],i,j;
+
+for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+                scanf("%d",&a[i][j]);
+        }
+}
+
+for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+                printf("%d\t",a[i][j]);
+        }
+        printf("\n");
+}
+
+printf("lowe triangle\n");
+for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+                if(i>=j){
+                        printf("%d\t",a[i][j]);
+                }
+        }
+        printf("\n");
+}
+return 0;
+}
+```
+## 54. Write a program in C to print or display an upper triangular matrix.
+```c
+#include<stdio.h>
+int main(){
+int a[3][3],i,j;
+
+for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+                scanf("%d",&a[i][j]);
+        }
+}
+
+for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+                printf("%d\t",a[i][j]);
+        }
+        printf("\n");
+}
+
+printf("upper triangle\n");
+for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+                if(i<=j){
+                        printf("%d\t",a[i][j]);
+                }
+        }
+        printf("\n");
+}
+return 0;
+}
+```
+## 55.Write a program in C to calculate the determinant of a 3 x 3 matrix.
+```c
+#include<stdio.h>
+int main(){
+        int a[3][3],i,j,det;
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+        printf("printf the matrix:\n");
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        printf("%d\t",a[i][j]);
+                }
+                printf("\n");
+                det = a[0][0]*(a[1][1]*a[2][2] - a[1][2]*a[2][1])
+        - a[0][1]*(a[1][0]*a[2][2] - a[1][2]*a[2][0])
+        + a[0][2]*(a[1][0]*a[2][1] - a[1][1]*a[2][0]);
+        }
+
+        printf("print determinant=%d\n",det);
+
+                        return 0;
+                        }
+```
+## 56.Write a program in C to accept two matrices and check whether they are equal.
+```c
+#include<stdio.h>
+int main(){
+        int a[3][3],b[3][3],i,j;
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&b[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        if(a[i][j]!=b[i][j]){
+                                printf("not equal\n");
+                                return 0;
+                        }
+                } 
+        }
+
+        printf("equal\n");
+        return 0;
+}
+```
+## 57. Write a program in C to find the majority element of an array  (A majority element in an array A[] of size n is an element that appears more than n/2 times (and hence there is at most one such element).
+```c
+#include<stdio.h>
+int main(){
+        int arr[10],i,j,n;
+        printf("enter the size\n");
+        scanf("%d",&n);
+
+
+
+printf("enter the array\n");
+for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+}
+
+        for(i=0;i<n;i++){
+                int count=0;
+                for(j=0;j<n;j++){
+                        if(arr[i]==arr[j])
+                                count++;
+                }
+                if(count > n/2){
+                        printf("majority=%d\n",arr[i]);
+                        return 0;
+                }
+        }
+        printf("no majority\n");
+        return 0;
+}
+```
+## 58. Write a program in C to find the missing number in a given array. There are no duplicates in the list.
+```c
+#include<stdio.h>
+int main(){
+        int arr[]={1,2,3,5};
+        int i,n=5,sum=0;
+        int total=n*(n+1)/2;
+
+        for(i=0;i<n-1;i++){
+                sum+=arr[i];
+        }
+        int missing=total-sum;
+        printf("%d\n",missing);
+        return 0;
+}
+```
+## 59. Write a program in C to find the two repeating elements in a given array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,2,1,3};
+        int i,j;
+
+        for(i=0;i<5;i++){
+                for(j=i+1;j<5;j++){
+                        if(arr[i]==arr[j]){
+                                printf("%d\n",arr[i]);
+                        }
+                }
+        }
+        return 0;
+}
+```
+## 60. Write a program to check if a given element is present in an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,3,4,5};
+        int i,j,key;
+        printf("enter the key number\n");
+        scanf("%d",&key);
+
+        for(i=0;i<5;i++){
+                for(j=0;j<5;j++){
+                        if(arr[i]==key){
+                                printf("%d is present in array\n",key);
+                                return 0;
+                                }
+                }
+        }
+
+        printf("is not in array.c\n");
+        return 0;
+}
+```
 

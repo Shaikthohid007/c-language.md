@@ -708,6 +708,45 @@ int main(){
 ```
  ## 35.Write a C program to find the length of the longest substring of a given string without repeating characters.
  ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int start=0,maxlen=0,i,j;
+        int visited[256];
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        int n=strlen(str);
+
+        for(i=0;i<256;i++){
+                visited[i]=-1;
+        }
+        for(j=0;j<n;j++){
+
+
+        if(visited[str[j]]>=start){
+                start=visited[str[j]]+1;
+        }
+
+        visited[str[j]]=j;
+
+        if(j-start +1  >maxlen){
+                maxlen=j-start+1;
+        }
+        }
+
+        printf("%d\n",maxlen);
+        return 0;
+}
+```
+## 36. A given string contains the bracket characters '(', ')', '{', '}', '<', ‘>', '[' and ']', Write a C program to check if the string is valid or not. The input string will be valid when open brackets and closed brackets are the same type of brackets. 
+
+## 37. Write a C program to multiply two positive numbers as strings. Return a string representation of the product.
+
+
 
 
 

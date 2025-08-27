@@ -3,8 +3,9 @@
 #include<stdio.h>
 int main(){
 int a[10],i;
+ pintf("enter the array");
 for(i=0;i<10;i++){
-scanf("%d",&a[i]);
+        scanf("%d",&a[i]);
 }
 printf("print the array elements\n");
 for(i=0;i<10;i++){

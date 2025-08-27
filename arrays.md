@@ -1386,4 +1386,361 @@ int main(){
         return 0;
 }
 ```
+ ## 61. Write a program to check if a given element is present in an array.
+ ```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,3,4,5};
+        int i,j,key;
+        printf("enter the key number\n");
+        scanf("%d",&key);
+
+        for(i=0;i<5;i++){
+                for(j=0;j<5;j++){
+                        if(arr[i]==key){
+                                printf("%d is present in array\n",key);
+                                return 0;
+                                }
+                }
+        }
+
+        printf("is not in array.c\n");
+        return 0;
+}
+```
+## 62. Create a function to calculate the average of elements in an array.
+```c
+#include<stdio.h>
+ float average(int arr[],int n);
+ int main(){
+         int arr[5]={1,2,3,4,5};
+         float avg;
+         avg=average(arr,5);
+         printf("%.2f\n",avg);
+         return 0;
+ }
+float average(int arr[],int n){
+        int i,sum=0;
+         for(i=0;i<5;i++){
+                 sum+=arr[i];
+         }
+         return (float)sum/n;
+}
+```
+## 63 . Write a program to count the number of even and odd elements in an array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,3,4,5};
+        int i,j,evencount=0,oddcount=0;
+
+        for(i=0;i<5;i++){
+                if(arr[i]%2==0){
+                evencount++;
+                }else{
+                        oddcount++;
+                }
+        }
+                printf("even=%d\n and odd=%d\n",evencount,oddcount);
+
+        return 0;
+}
+```
+##  64 . Implement a function to reverse the elements of an array.
+```c
+#include<stdio.h>
+int reverse(int arr[],int n);
+int main(){
+        int arr[5]={1,2,3,4,5};
+        printf("revse the number\n");
+        reverse(arr,5);
+        return 0;
+}
+int reverse(int arr[],int n){
+        int i;
+        for(i=4;i>=0;i--){
+                printf("%d\n",arr[i]);
+        }
+        printf("\n");
+}
+```
+## 65 .Implement a function to delete an element at a specific position in an array.
+```c
+#include<stdio.h>
+void deleted(int arr[],int n);
+int main(){
+        int arr[5]={1,2,3,4,5};
+        deleted(arr,5);
+        return 0;
+}
+void deleted(int arr[],int n){
+        int pos,i;
+        printf("enter the position\n");
+        scanf("%d",&pos);
+        for(i=pos-1;i<n-1;i++){
+                arr[i]=arr[i+1];
+        }
+        printf("print after deleting\n");
+        for(i=0;i<n-1;i++){
+                printf("%d\n",arr[i]);
+        }
+}
+```
+## 66.. Write a function to find the product of all elements in an array.
+```
+#include<stdio.h>
+void product(int arr[],int n);
+int main(){
+        int arr[5]={1,2,3,4,5};
+        product(arr,5);
+        return 0;
+}
+void product(int arr[],int n){
+        int i,sum=0;
+        for(i=0;i<5;i++){
+                sum=sum+arr[i];
+        }
+        printf("%d\n",sum);
+}
+```
+## 67.Print Square of Array Elements in C.
+```c
+#include<stdio.h>
+int main(){
+        int arr[5]={1,2,3,4,5};
+
+        for(int i=0;i<5;i++){
+                printf("%d\n",arr[i]*arr[i]);
+        }
+        return 0;
+}
+```
+## 68. . Print Ascii Values using Array in C.
+```
+#include<stdio.h>
+int main(){
+        int arr[5]={'A','B','a','b','c'};
+        int i;
+        for(i=0;i<5;i++){
+                printf("  %c     %d\n",arr[i],arr[i]);
+        }
+        return 0;
+}
+```
+## 69. C Program To Find Two Elements whose Sum is Closest to Zero.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main (){
+        int arr[6];
+        int n=6;
+        int i,j;
+        printf("enter the array\n");
+        for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+        }
+
+        for(i=0;i<n-1;i++){
+                for(j=i+1;j<n;j++){
+                        if(arr[i]>arr[j]){
+                                int temp=arr[i];
+                                arr[i]=arr[j];
+                                arr[j]=temp;
+                        }
+                }
+        }
+
+        int f=0;
+        int r=n-1;
+        int min_sum=arr[f]+arr[r];
+        int num1=arr[f];
+        int num2=arr[r];
+
+        while(f<r){
+                int sum=arr[f]+arr[r];
+
+                if( abs (sum) <abs (min_sum)){
+                        min_sum=sum;
+                        num1=arr[f];
+                        num2=arr[r];
+                }
+        if(sum<0){
+                f++;
+        }
+        else{
+                r--;
+        }
+        }
+
+        printf("%d & %d is colse\n",num1,num2);
+        printf("%d\n",min_sum);
+        }
+```
+## 67. C Program to Find Union and Intersection of Two Arrays.
+```c
+#include<stdio.h>
+int main(){
+        int arr1[4]={1,2,3,4};
+        int arr2[4]={3,4,5,6};
+        int unionarr[8];
+        int i,j,u=0;
+
+        for(i=0;i<4;i++){
+                unionarr[u]=arr1[i];
+                u++;
+        }
+        for(j=0;j<4;j++){
+                unionarr[u]=arr2[j];
+                u++;
+        }
+        printf("print the union \n");
+        for(i=0;i<u;i++){
+
+        printf("%d\n",unionarr[i]);
+        }
+
+
+        printf("\n");
+
+        printf("print the intrsction\n");
+
+
+        for(i=0;i<4;i++){
+                for(j=0;j<4;j++){
+                        if(arr1[i]==arr2[j]){
+                                printf("%d\n",arr1[i]);
+                        }
+                }
+        }
+//      printf("\n");
+
+
+
+        return 0;
+}
+```
+## 68. C Program to Print all Non Repeated Elements in an Array.
+```
+#include<stdio.h>
+int main(){
+          int arr[10];
+          int i,j,count;
+          printf("enter the array\n");
+          for(i=0;i<5;i++){
+          scanf("%d",&arr[i]);
+          }
+
+          for(i=0;i<5;i++){
+                  count=0;
+                  for(j=0;j<5;j++){
+                          if(arr[i]==arr[j]){
+                                  count++;
+                          }
+                  }
+
+          if(count==1){
+                  printf("%d\n",arr[i]);
+          }
+          }
+          return 0;
+          }
+
+```
+## 69.. Write a program to write all the elements of 2-D Array into !-D Array in row wise.
+```c
+
+#include<stdio.h>
+int main(){
+        int arr2[2][3];
+        int arr1[6];
+        int i,j,d;
+
+        printf("enter the 2D array\n");
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&arr2[i][j]);
+                        }
+        }
+
+        for(i=0;i<2;i++){
+                for(j=0;j<3;j++){
+                        arr1[d]=arr2[i][j];
+                        d++;
+                }
+        }
+        for(i=0;i<6;i++){
+                printf("%d\n",arr1[i]);
+        }
+        return 0;
+}
+```
+## 70. Write a program to write whether a matrix is symmetric or not.
+```c
+#include<stdio.h>
+int main(){
+        int arr[3][3];
+        int i,j;
+        printf("enter the 2D matrix\n");
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",&arr[i][j]);
+                }
+        }
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        if(arr[i][j]!=arr[j][i]){
+                                printf("is a  not symmetrix\n");
+                                return 0;
+                        }
+                }
+        }
+        printf("is  a symmetrix\n");
+        return 0;
+}
+```
+## 71. Write a program to check if elements of an array are distinct or not.
+```c
+#include<stdio.h>
+int main(){
+        int arr[10];
+        int i,j;
+        printf("enter the array\n");
+        for(i=0;i<5;i++){
+                scanf("%d",&arr[i]);
+        }
+
+        for(i=0;i<5;i++){
+                for(j=i+1;j<5;j++){
+                        if(arr[i]==arr[j]){
+                                printf("is a not  distinct \n");
+                                return 0;
+
+                        }
+                }
+        }
+        printf("is  a distunct\n");
+        return 0;
+}
+```
+## 72..Write a program to remove duplicate elements from a sorted array.
+```c
+#include<stdio.h>
+int main(){
+        int arr[8]={1,1,2,2,3,4,4,5};
+        int i,j;
+        j=0;
+         for(i=1;i<8;i++){
+                 if(arr[i]!=arr[j]){
+                         j++;
+                         arr[j]=arr[i];
+                 }
+         }
+         printf("after sort\n");
+         for(i=0;i<=j;i++){
+                 printf("%d\n",arr[i]);
+         }
+         return 0;
+}
+```
 

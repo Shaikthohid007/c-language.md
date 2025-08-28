@@ -745,8 +745,107 @@ int main(){
 ## 36. A given string contains the bracket characters '(', ')', '{', '}', '<', ‘>', '[' and ']', Write a C program to check if the string is valid or not. The input string will be valid when open brackets and closed brackets are the same type of brackets. 
 
 ## 37. Write a C program to multiply two positive numbers as strings. Return a string representation of the product.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str1[100],str2[100];
+        int len1,len2;
+        int result[200]={0};
+        int i,j;
+        scanf("%s %s",str1,str2 );
+
+        len1=strlen(str1);
+        len2=strlen(str2);
+
+        for(i=len1-1;i>=0;i--){
+                for(j=len2-1;j>=0;j--){
+                int mul = (str1[i]-'0')*(str2[j]-'0') ;
+                        int sum=mul+result[i+j+1];
+                result[i+j+1]=sum%10;
+                result[i+j]+=sum/10;
+                }
+        }
+        i=0;
+        while(i<4&&result[i]==0){
+                i++;
+        }
+
+        if(i==len1+len2){
+                printf("0\n");
+        }
+        else{
+                for( ;i<len1+len2;i++){
+                        printf("%d",result[i]);
+                }
+                printf("\n");
+        }
+
+return 0;
+}
+```
+## 38.  38. Write a C program to reverse all the vowels present in a given string. Return the newly created string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],rev[100];
+        int i,j=0;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]=='a' || str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
+                        rev[j++]=str[i];
+
+        }
+        rev[j]='\0';
+        printf("vowels\n");
+        printf("%s\n",rev);
 
 
+        int k=j-1;
+
+        printf("print the reverse\n");
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
+                        str[i]=rev[k--];
+        }
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 39. Write a C program to find the longest palindromic substring from a given string. Return the substring.
+ ## 40. Write a C program to replace each lowercase letter with the same uppercase letter of a given string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]>='a' && str[i]<='z'){
+                        str[i]=str[i]-32;
+                }
+        }
+        printf("%s\n",str);
+        return 0;
+}
+```
+##  41. Write a C program to calculate the length of the longest common subsequence of two given  strings.
+
+ 42. Write a C program to find the length of a string.
+ 43. Write a C program to copy one string to another string.
+ 44. Write a C program to concatenate two strings.
+ 45. Write a C program to compare two strings.
+ 46. Write a C program to convert lowercase string to uppercase.
 
 
 

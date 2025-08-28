@@ -126,8 +126,7 @@ int main(){
         return 0;
 }
 ```
-## 7. Write a program in C to count the total number of alphabets, digits and special characters in 
-a string.
+## 7. Write a program in C to count the total number of alphabets, digits and special characters in a string.
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -840,13 +839,200 @@ int main(){
 }
 ```
 ##  41. Write a C program to calculate the length of the longest common subsequence of two given  strings.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str1[100],str2[100];
+        int i,j,m,n;
+        int s[101][101]={0};
 
- 42. Write a C program to find the length of a string.
- 43. Write a C program to copy one string to another string.
- 44. Write a C program to concatenate two strings.
- 45. Write a C program to compare two strings.
- 46. Write a C program to convert lowercase string to uppercase.
+        printf("enter the 1st string\n");
+        scanf("%s",str1);
 
+        printf("enter the 2nd string\n");
+        scanf("%s",str2);
+
+        m=strlen(str1);
+        n=strlen(str2);
+
+        for(i=1;i<=m;i++){
+                for(j=1;j<=n;j++){
+                        if(str1[i-1]==str2[j-1]){
+                                s[i][j]=1+s[i-1][j-1];
+                        }else{
+                                if(s[i-1][j]>s[i][j-1])
+                                s[i][j]=s[i-1][j];
+                        else
+                                s[i][j]=s[i][j-1];
+                }
+                }
+        }
+        printf("%d\n",s[m][n]);
+        return 0;
+}
+```
+  ## 42. Write a C program to find the length of a string.
+  ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,count=0;
+
+        printf("enter the string\n");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                count++;
+        }
+
+        printf("length of string %d\n",count);
+        return 0;
+}
+```
+ ## 43. Write a C program to copy one string to another string.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str1[100],str2[100];
+        int i,j=0;
+
+        printf("enter the string\n");
+        fgets(str1,sizeof(str1),stdin);
+        str1[strcspn(str1,"\n")]='\0';
+
+        for(i=0;str1[i]!='\0';i++){
+                str2[j++]=str1[i];
+        }
+
+        printf("%s\n",str2);
+        return 0;
+}
+```
+ ## 44. Write a C program to concatenate two strings.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],sub[100];
+        int i,j;
+
+        printf("enter the string\n");
+
+        scanf("%s",str);
+        scanf("%s",sub);
+
+
+
+        for(i=0;str[i]!='\0';i++);
+                for(j=0;sub[j]!='\0';j++){
+                str[i]=sub[j];
+                i++;
+        }
+
+        str[i]='\0';
+        printf("%s\n",str);
+             return 0;
+}
+```
+## 45. Write a C program to compare two strings.
+```c
+#include<stdio.h>
+#include<stdio.h>
+int main(){
+        char str1[100]="apple";
+        char str[100]="ampple";
+
+        int i,flag=0;
+
+        for(i=0;str1[i]!='\0'||str[i]!='\0';i++){
+                if(str1[i]!=str[i]){
+                        flag=1;
+                }
+        }
+
+        if(flag==0)
+                printf("equal\n");
+        else
+                printf("not equal\n");
+        return 0;
+}
+```
+ ## 46. Write a C program to convert lowercase string to uppercase.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                str[i]=str[i]+32;
+        }
+        printf("%s\n",str);
+        return 0;
+}
+```
+ ## 47 .Write a C program to convert uppercase string to lowercase.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                str[i]=str[i]-32;
+        }
+        printf("%s\n",str);
+        return 0;
+}
+```
+  ## 48. Write a C program to toggle the case of each character of a string.
+  ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i;
+
+        printf("enter the string\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if (str[i]>='A' && str[i]<='Z'){
+                        str[i]=str[i]+32;
+                }
+        else if
+
+
+                         (str[i]>='a'&&str[i]<='z'){
+                                str[i]=str[i]-32;
+                }
+        }
+
+        printf("%s\n",str);
+        return 0;
+}
+```
+ ## 49. Write a C program to find the total number of alphabets, digits or special characters in a string.
+ 
+50. Write a C program to count the total number of vowels and consonants in a string.
+ 51. Write a C program to count the total number of words in a string.
+ 52. Write a C program to find the reverse of a string.
+ 53. Write a C program to check whether a string is palindrome or not
 
 
 

@@ -1028,11 +1028,129 @@ int main(){
 }
 ```
  ## 49. Write a C program to find the total number of alphabets, digits or special characters in a string.
- 
-50. Write a C program to count the total number of vowels and consonants in a string.
- 51. Write a C program to count the total number of words in a string.
- 52. Write a C program to find the reverse of a string.
- 53. Write a C program to check whether a string is palindrome or not
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,alpcount=0,digcount=0,splcount=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]>='a' && str[i]<='z'){
+        alpcount++;
+        }   else if  (str[i]>='0' && str[i]<='9'){
+            digcount++;
+        }else {
+            splcount++;
+        }
+        }
+    printf("alpcount=%d\n",alpcount);
+    printf("digcount=%d\n",digcount);
+    printf("splcount=%d\n",splcount);
+    return 0;
+    
+}
+```
+## 50. Write a C program to count the total number of vowels and consonants in a string.
+```c
+ #include<stdio.h>
+ #include<string.h>
+ int main(){
+     char str[100];
+     int i,vowcount=0,concount=0;
+     
+     printf("enter the \n");
+     fgets(str,sizeof(str),stdin);
+     str[strcspn(str,"\n")]='\0';
+     
+     for(i=0;str[i])!='\0';i++){
+         if(str[i]=='a' || str[i]=='e' || str[i]=='o'|| str[i]=='i' || str[i])=='u'){
+             vowcount++;
+         }else{
+             concount++;
+         }
+         
+         }
+     printf("%d and %d\n",vowcount,concount);
+     return 0;
+ }
+```
+ ## 51. Write a C program to count the total number of words in a string.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,count=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        count++;
+    }
+    printf("%d\n",count);
+    return 0;
+}
+```
+ ## 52. Write a C program to find the reverse of a string.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,l;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    l=strlen(str);
+    
+    for(i=l-1;i>=0;i--)
+        
+
+    
+    printf("%c\n",str[i]);
+    return 0;
+}
+```
+ ## 53. Write a C program to check whether a string is palindrome or not.
+ ```c
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,l,flag=1;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    l=strlen(str);
+    
+    for(i=0;i<l/2;i++){
+       if(str[i]!=str[l-i-1]){
+        flag=0;
+        break;
+    }
+    }
+    if(flag==1)
+    printf("yes\n");
+    else
+    printf("no\n");
+    return 0;
+}
+```
+## 54.
+    
+  
 
 
 

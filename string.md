@@ -1112,11 +1112,12 @@ int main(){
     
     l=strlen(str);
     
-    for(i=l-1;i>=0;i--)
-        
-
-    
-    printf("%c\n",str[i]);
+    for(i=0;i<l/2;i++){
+int temp =str[i];
+str[i]=str[l-i-1];
+str[l-i-1]=temp;
+}    
+   printf("%s\n",str);
     return 0;
 }
 ```
@@ -1148,7 +1149,146 @@ int main(){
     return 0;
 }
 ```
-## 54.
+## 54.54. Write a C program to reverse order of words in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,l;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    l=strlen(str);
+
+0    
+    for(i=l-1;i>=0;i--)
+        
+
+    
+    printf("%c\n",str[i]);
+    return 0;
+} 
+```
+ ## 55. Write a C program to find the first occurrence of a character in a given string.
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,fount=-1;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+          fount=i;
+          break;
+        }
+    }
+    if(fount!=-1)
+    printf("%c and %d\n",ch,fount);
+    else
+    printf("%c\n",ch);
+}
+```
+## 56. Write a C program to find the last occurrence of a character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,fount=-1;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+          fount=i;
+        }
+    }
+    if(fount!=-1)
+    printf("%c and %d\n",ch,fount);
+    else
+    printf("%c\n",ch);
+}
+```
+## 57. Write a C program to search all occurrences of a character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,count=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+          printf("%d\n",i);
+          count++;
+        }
+        
+    }
+    if(count>0)
+    printf("%c and %d\n",ch,count);
+    else
+    printf("%c\n",ch);
+}
+```
+## 58. Write a C program to count occurrences of a character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,count=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+       
+          count++;
+        }
+        
+    }
+    if(count>0)
+    printf("%c and %d\n",ch,count);
+    else
+    printf("%c\n",ch);
+}
+```
+## 59. Write a C program to find the highest frequency character in a string.
+```c
+
+60. Write a C program to find the lowest frequency character in a string.
+61. Write a C program to count the frequency of each character in a string.
+62. Write a C program to remove the first occurrence of a character from a string.
+63. Write a C program to remove the last occurrence of a character from a string.
+64. Write a C program to remove all occurrences of a character from a string.
     
   
 

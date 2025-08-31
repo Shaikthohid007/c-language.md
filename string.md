@@ -1283,8 +1283,44 @@ int main(){
 ```
 ## 59. Write a C program to find the highest frequency character in a string.
 ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,j,count=0,max=0;
+    char result;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+       count=1;
+       if(str[i]=='0')
+       continue;
+       
+       for(j=i+1;str[j]!='\0';j++){
+           if(str[i]==str[j]){
+           count++;
+           str[j]='0';
+       }
+       }
+       if(count>max){
+       max=count;
+       result=str[i];
+    }
+    }
+    
+    printf("%c and %d",result,max);
+    return 0;
+}
+```
+## 60. Write a C program to find the lowest frequency character in a string.
+```c
 
-60. Write a C program to find the lowest frequency character in a string.
 61. Write a C program to count the frequency of each character in a string.
 62. Write a C program to remove the first occurrence of a character from a string.
 63. Write a C program to remove the last occurrence of a character from a string.

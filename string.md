@@ -1320,12 +1320,131 @@ int main(){
 ```
 ## 60. Write a C program to find the lowest frequency character in a string.
 ```c
-
-61. Write a C program to count the frequency of each character in a string.
-62. Write a C program to remove the first occurrence of a character from a string.
-63. Write a C program to remove the last occurrence of a character from a string.
-64. Write a C program to remove all occurrences of a character from a string.
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,j,count,mim=9999;
+    char result;
     
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        count=1;
+        if(str[i]=='0')
+        continue;
+        
+        for(j=i+1;str[j]!='\0';j++){
+            if(str[i]==str[j]){
+            count++;
+            str[j]='0';
+            }
+        }
+        if(count<mim){
+            mim=count;
+            result=str[i];
+        }
+    }
+    printf("%c and %d\n",result,mim);
+    return 0;
+}
+```
+## 61. Write a C program to count the frequency of each character in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int count;
+    int visited[100]={0};
+    int i,j;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        if(visited[i]==1)
+        continue;
+        count=1;
+        for(j=i+1;str[j]!='\0';j++){
+            if(str[i]==str[j]){
+                count++;
+                visited[j]=1;
+            }
+        }
+    
+    printf("%c and %d\n",str[i],count);
+    }
+    return 0;
+}
+```
+## 62. Write a C program to remove the first occurrence of a character from a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,j;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the charcter\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+            
+            for(j=i;str[j]!='\0';j++){
+                str[j]=str[j+1];
+                
+            }
+            break;
+            
+        }
+    }
+    printf("%c and %s\n",ch,str);
+    return 0;
+}
+```
+## 63. Write a C program to remove the last occurrence of a character from a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char  str[100],ch;
+    int i,j,count=1;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the string\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+            count=i;
+        }
+    }
+    if(count!=1){
+        for(j=count;str[j]!='\0';j++){
+            str[j]=str[j+1];
+            
+        }
+    }
+        
+        printf("%c and %s\n",ch,str);
+        return 0;
+    }
+```
+## 64. Write a C program to remove all occurrences of a character from a string.
+```c
+
   
 
 

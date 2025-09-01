@@ -1671,13 +1671,29 @@ int main(){
   ```
  ## 79. Write a C program to remove all extra blank spaces from given string.
  ```c
-
-80. Write a function to convert a string into uppercase.
-81. Write a function for performing case insensitive string comparison.
-82. Write a recursive function to reverse a string using bitwise operator’s.
-83. Unlike gets (), the function fgets() doesn't delete the newline character entered at the end
-but retains it. What should we do if we don't want the newline character in the string
-84. Write a function to remove all leading and trailing blanks from a string 
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,j=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==' ' && str[i+1]==' ')
+       continue;
+        str[j]=str[i];
+        j++;
+    }
+    str[j]='\0';
+    
+    printf("%s\n",str);
+    return 0;
+}
+```
+ 
 
 
 

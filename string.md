@@ -1498,17 +1498,186 @@ int main(){
 ```
 ## 66. Write a C program to replace the first occurrence of a character with another in a string.
 ```c
-
-67. Write a C program to replace the last occurrence of a character with another in a string.
-68. Write a C program to replace all occurrences of a character with another in a string.
-69. Write a C program to find the first occurrence of a word in a given string.
-70. Write a C program to find the last occurrence of a word in a given string.
-71. Write a C program to search all occurrences of a word in a given string.
-72. Write a C program to count occurrences of a word in a given string.
-73. Write a C program to remove the first occurrence of a word from a string.
-74. Write a C program to remove the last occurrence of a word in a given string.
-75. Write a C program to remove all occurrences of a word in a given string
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch,bh;
+    int i,count=1;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    getchar();
+    scanf("%c",&bh);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+        str[i]=bh;
+        break;
+        }
+    }
+    printf("%s\n",str);
+    return 0;
+}
+```
+## 67. Write a C program to replace the last occurrence of a character with another in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch,bh;
+    int i,count=1;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c %c",&ch ,&bh);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+     count=i;
+       
+        }
+    }
+    if(count!=1){
+    str[count]=bh;
+    printf("%c and %s\n",ch,str);
+   } else{
+    printf("%c\n",ch);
+   }
+    return 0;
+}
+```
+## 68. Write a C program to replace all occurrences of a character with another in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    char ch ,bh;
+    int i;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c %c",&ch ,&bh);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+        str[i]=bh;
+        }
+    }
+    printf("%s\n",str);
+    return 0;
+    
+}
+```
+## 69. Write a C program to find the first occurrence of a word in a given string.
+## 70. Write a C program to find the last occurrence of a word in a given string.
+## 71. Write a C program to search all occurrences of a word in a given string.
+## 72. Write a C program to count occurrences of a word in a given string.
+## 73. Write a C program to remove the first occurrence of a word from a string.
+## 74. Write a C program to remove the last occurrence of a word in a given string.
+## 75. Write a C program to remove all occurrences of a word in a given string
+## 76. Write a C program to trim leading white space characters from a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char  str[100];
+    int i,j=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]==' ';i++);
+        for( ;str[i]!='\0';i++){
+            str[j]=str[i];
+            j++;
+        
+    }
+    str[j]='\0';
+    printf("%s\n",str);
+    return 0;
+}
+```
+## 77. Write a C program to trim trailing white space characters from a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,l;
+    
+     printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    l=strlen(str);
+    
+    for(i=l-1;i>=0&&str[i]==' ';i--){
+    str[i]='\0';
+    }
+printf("%s\n",str);
+return 0;
+}
+```
+## 78. Write a C program to trim both leading and trailing white space characters from given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100]="    thihid   ";
+    int i,l,j,k=0,t;
+    
+   //  printf("enter the string\n");
+    //fgets(str,sizeof(str),stdin);
+    //str[strcspn(str,"\n")]='\0';
+    
+    l=strlen(str);
+   // for(i=0 ;str[i]==' ';i++);
+   // for(j=l-1;str[j]== ' ';j--);
+        
+   // for(t=i;t<=j;t++){
+   //     str[k]=str[t];
+     //   k++;
+  //  }
+  //  str[k]='\0';
   
+  while(str[i]==' ' &&str[i]!='\0'){
+      i++;
+  }
+  j=l-1;
+  while(str[j]==' ' && j>=0){
+      j--;
+  }
+  
+  for(t=i;str[t]!='\0';t++){
+      str[k++]=str[t];
+  }
+  str[k]='\0';
+  
+    printf("%s",str);
+    return 0;
+}
+  ```
+ ## 79. Write a C program to remove all extra blank spaces from given string.
+ ```c
+
+80. Write a function to convert a string into uppercase.
+81. Write a function for performing case insensitive string comparison.
+82. Write a recursive function to reverse a string using bitwise operator’s.
+83. Unlike gets (), the function fgets() doesn't delete the newline character entered at the end
+but retains it. What should we do if we don't want the newline character in the string
+84. Write a function to remove all leading and trailing blanks from a string 
 
 
 

@@ -1444,7 +1444,70 @@ int main(){
 ```
 ## 64. Write a C program to remove all occurrences of a character from a string.
 ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],ch;
+    int i,j;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[str,strcspn(str,"\n")]='\0';
+    
+    printf("enter the character\n");
+    scanf("%c",&ch);
+    
+    for(i=0;str[i]!='\0';i++){
+        if(str[i]==ch){
+            
+            for(j=i;str[j]!='\0';j++){
+                str[j]=str[j+1];
+            }
+            i--;
+        }
+    }
+    printf("%c and %s\n",ch,str);
+    return 0;
+}
+```
+## 65. Write a C program to remove all repeated characters from a given string.
+```c
+ #include<stdio.h>
+#include<string.h>
+int main(){
+    char str[1000];
+    int i,j,k;
+    
+    printf("enter the charceter\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        for(j=i+1;str[j]!='\0';j++){
+            if(str[i]==str[j]){
+                for(k=j;str[k]!='\0';k++){
+                    str[k]=str[k+1];
+                }
+                j--;
+            }
+        }
+        }
+        printf("%s\n",str);
+        return 0;
+} 
+```
+## 66. Write a C program to replace the first occurrence of a character with another in a string.
+```c
 
+67. Write a C program to replace the last occurrence of a character with another in a string.
+68. Write a C program to replace all occurrences of a character with another in a string.
+69. Write a C program to find the first occurrence of a word in a given string.
+70. Write a C program to find the last occurrence of a word in a given string.
+71. Write a C program to search all occurrences of a word in a given string.
+72. Write a C program to count occurrences of a word in a given string.
+73. Write a C program to remove the first occurrence of a word from a string.
+74. Write a C program to remove the last occurrence of a word in a given string.
+75. Write a C program to remove all occurrences of a word in a given string
   
 
 

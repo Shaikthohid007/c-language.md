@@ -479,6 +479,141 @@ int main(){
         return 0;
 }
 ```
+## 27..WRITE A C PROGRAM TO COUNT THE NUMBER OF WORDS IN A GIVEN STRING USING A WHILE LOOP.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,count;
+    
+    printf("enter the word\n");
+    fgets(str,100,stdin);
+    
+    for(i=0; str[i]!='\0';i++){
+        if(str[i]==' ' && str[i]!='\0')
+        count++;
+    }
+    printf("%d\n",count);
+    return 0;
+}
+```
+## 28..WRITE A C PROGRAM TO CHECK WHETHER A GIVEN STRING IS A PALINDROME OR NOT USING A FOR LOOP.
+##  29.WRITE A C PROGRAM TO CONCATENATE TWO STRINGS WITHOUT USING LIBRARY FUNCTIONS USING A WHILE LOOP?
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100],sun[100];
+    int i=0,j=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    printf("enter the string\n");
+    fgets(sun,sizeof(sun),stdin);
+    sun[strcspn(sun,"\n")]='\0';
+    
+    while(str[i]!='\0'){
+        i++;
+    };
+    while(sun[j]!='\0'){
+        str[i]=sun[j];
+        i++;
+        j++;
+}
+str[i]='\0';
+    printf("%s\n",str);
+    return 0;
+}
+```
+ ## 30.WRITE A C PROGRAM TO FIND THE LENGTH OF A STRING USING A FOR LOOP?
+ ```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i,count=0;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        count++;
+    }
+    printf("%d\n",count);
+    return 0;
+    
+}
+```
+## 31.WRITE A C PROGRAM TO CONVERT A STRING TO UPPERCASE USING A WHILE LOOP?
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[100];
+    int i;
+    
+    printf("enter the string\n");
+    fgets(str,sizeof(str),stdin);
+    str[strcspn(str,"\n")]='\0';
+    
+    for(i=0;str[i]!='\0';i++){
+        str[i]=str[i]-32;
+    }
+    printf("%s\n",str);
+    return 0;
+    
+}
+```
+ ## 32.WRITE A C PROGRAM TO FIND THE POWER OF A NUMBER USING A FOR LOOP?
+ ```c
+#include<stdio.h>
+int main(){
+    int n,i=0;
+    
+    printf("enter the number\n");
+    scanf("%d",&n);
+    
+    for(   ;i<n;   )
+        i=n*n*n;
+        
+    printf("%d\n",i);
+    
+    return 0;
+    
+}
+```
+ ## 33.WRITE A C PROGRAM TO FIND THE FACTORIAL OF A NUMBER USING A WHILE LOOP?
+ ```c
+#include<stdio.h>
+int main(){
+    int i,fact=1,n;
+    
+    printf("enter the string\n");
+    scanf("%d",&n);
+    
+    for(i=1;i<=n;i++){
+        fact=fact*i;
+    }
+    printf("%d\n",fact);
+    return 0;
+    
+}
+```
+
+ 34.WRITE A C PROGRAM TO FIND THE GCD OF TWO NUMBERS USING A WHILE LOOP?
+ 35.WRITE A C PROGRAM TO FIND THE LCM OF TWO NUMBERS USING A FOR LOOP?
+ 36.WRITE A C PROGRAM TO PRINT THE MULTIPLICATION TABLE OF A GIVEN NUMBER USING A FOR LOOP?
+ 37.WRITE A PROGRAM IN C TO PRINT THE ARMSTRONG NUMBERS BETWEEN 1 AND 1000 USING A FOR LOOP?
+ 38.WRITE A PROGRAM IN C TO IMPLEMENT A SIMPLE CALCULATOR USING SWITCH-CASE STATEMENTS?
+ 39.WRITE A PROGRAM IN C TO CHECK WHETHER A GIVEN NUMBER IS A PALINDROME OR NOT USING WHILE LOOPS AND IF-ELSE STATEMENTS?
+ 40.WRITE A PROGRAM IN C TO FIND THE SUM OF ELEMENTS IN THE LOWER TRIANGULAR MATRIX USING LOOPS AND IF-ELSE STATEMENTS?
+ 41.WRITE A PROGRAM IN C TO FIND THE SUM OF ELEMENTS IN THE UPPER TRIANGULAR MATRIX USING LOOPS AND IF-ELSE STATEMENTS?
+ 42.WRITE A PROGRAM IN C TO REMOVE DUPLICATE ELEMENTS FROM AN ARRAY USING LOOPS AND IF-ELSE STATEMENTS?
+
 
 
 

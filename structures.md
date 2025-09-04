@@ -38,8 +38,57 @@ int main(){
 ## 4. Create a structure to represent a book with the following members: title (string), author (string), ISBN (long int), and number of pages (int). Write a function to accept details of a book from the user andstore them in a structure variable. 
 ## 5. Define a union to represent the size of a product, which can be specified in centimeters, inches, or feet. Write a function to convert the size from one unit to another (e.g., centimeters to inches). 
 ## 6. Define a structure to represent a date with day, month, and year (all integers). Write a function to check if a given year is a leap year. 
+```c
+#include<stdio.h>
+struct date {
+    int year;
+    int day;
+    int month;
+};
+int leapyear(int year);
+int main(){
+    struct date stu;
+    scanf("%d %d %d",&stu.year,&stu.day,&stu.month);
+    if(leapyear(stu.year))
+    printf("yes");
+    else
+    printf("no\n");
+}
+int leapyear(int year){
+if(year%4==0)
+return 1;
+else
+return 0;
+}
+```
 ## 7. Define a structure to represent a complex number with real and imaginary parts (both floats). Write a function to add two complex numbers represented by structures. 
+```c
+#include<stdio.h>
+struct complex{
+    float image;
+    float real;
+};
+struct complex addcomplex(struct complex c1,struct complex c2);
+int main(){
+    struct complex num1,num2,sum;
+    scanf("%f %f",&num1.real,&num1.real);
+    scanf("%f %f",&num2.image,&num2.image);
+    
+    sum=addcomplex(num1,num2);
+    
+    printf("%.2f +%.2f\n",sum.real,sum.image);
+    return 0;
+}
+struct complex addcomplex(struct complex c1,struct complex c2){
+struct complex result;
+result.real=c1.real+c2.real;
+result.image=c1.image+c2.image;
+return result;
+}
+```
 ## 8. Implement a linked list using structures. Each node in the list should hold an integer value and a pointer to the next node. 
+```c
+
 ## 9. Define a self-referential structure to represent a binary tree node. Each node should have data (integer) and pointers to left and right child nodes. 
 ## 10. Write a program that reads a text file containing lines of student data (name, roll number, marks) and stores the information in an array of structures. 
 ## 11. Implement a function that takes a structure representing a date (day, month, year) and checks if the date is valid (e.g., not exceeding the number of days in a month). 

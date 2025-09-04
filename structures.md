@@ -88,9 +88,74 @@ return result;
 ```
 ## 8. Implement a linked list using structures. Each node in the list should hold an integer value and a pointer to the next node. 
 ```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main(){
+struct node *head=malloc(sizeof(struct node));
+head->data=10;
+head->next=NULL;
 
-## 9. Define a self-referential structure to represent a binary tree node. Each node should have data (integer) and pointers to left and right child nodes. 
+struct node *second=malloc(sizeof(struct node));
+second->data=20;
+second->next=NULL;
+head->next=second;
+
+struct node *third=malloc(sizeof(struct node));
+third->data=30;
+third->next=NULL;
+second->next=third;
+
+struct node *temp=head;
+while(temp!=NULL){
+    printf("%d->",temp->data);
+    temp=temp->next;
+}
+printf("NULL\n");
+return 0;
+}
+```
+## 9. Define a self-referential structure to represent a binary tree node. Each node should have data (integer) and pointers to left and right child nodes.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *left;
+    struct node *right;
+};
+int main(){
+    struct node *root=malloc(sizeof(struct node));
+    root->data=10;
+    root->left=NULL;
+    root->right=NULL;
+    
+    struct node *leftchild=malloc(sizeof(struct node));
+    leftchild->data=5;
+    leftchild->left=NULL;
+    leftchild->right=NULL;
+    
+    root->left=leftchild;
+    
+    struct node *rightchild=malloc(sizeof(struct node));
+    rightchild->data=20;
+    rightchild->left=NULL;
+    rightchild->right=NULL;
+    
+    root->right=rightchild;
+    
+    printf("%d\n",root->data);
+    printf("%d\n",root->left->data);
+    printf("%d\n",root->right->data);
+    return 0;
+}
+```
 ## 10. Write a program that reads a text file containing lines of student data (name, roll number, marks) and stores the information in an array of structures. 
+```c
+
 ## 11. Implement a function that takes a structure representing a date (day, month, year) and checks if the date is valid (e.g., not exceeding the number of days in a month). 
 ## 12. Define a union to represent a shape. The union can hold the dimensions of different shapes like cicle (radius), rectangle (length, breadth), or triangle (base, height). Write functions to calculate the area of each shape based on the type stored in the union. 
  ## 13. Define a structure to represent a playing card with suit (enum) and rank (integer). Write a function to generate a random playing card and another function to print the card's details. 

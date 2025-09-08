@@ -173,6 +173,47 @@ int main(){
 }
 ```
 ## 11. Implement a function that takes a structure representing a date (day, month, year) and checks if the date is valid (e.g., not exceeding the number of days in a month).
+```c
+#include<stdio.h>
+struct date{
+    int date;
+    int month;
+    int year;
+};
+int leapyear(int year);
+int validdate(struct date);
+int main(){
+    struct date d;
+    scanf("%d %d %d",&d.date,&d.month,&d.year);
+    
+    if(validdate(d))
+    printf("valid\n");
+    else
+    printf("no\n");
+    return 0;
+}
+    
+    int leapyear(int year){
+    if(year %4==0)
+    return 1;
+    else
+    return 0;
+    }
+
+
+int validdate(struct date d){
+    if(d.year<1)
+    return 0;
+    
+    if(d.month<1 || d.month>12)
+    return 0;
+    
+    if(d.date<1 || d.date>31)
+    return 0;
+    
+    return 1;
+}
+```5
 ## 12. Define a union to represent a shape. The union can hold the dimensions of different shapes like cicle (radius), rectangle (length, breadth), or triangle (base, height). Write functions to calculate the area of each shape based on the type stored in the union. 
  ## 13. Define a structure to represent a playing card with suit (enum) and rank (integer). Write a function to generate a random playing card and another function to print the card's details. 
 ## 14. Implement a function that takes a structure representing a time (hours, minutes, seconds) and performs basic time arithmetic (e.g., adding two time durations). 

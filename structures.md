@@ -62,7 +62,7 @@ int equal(struct point p1,struct point p2){
     
 }
 ```
-## 4. Create a structure to represent a book with the following members: title (string), author (string), ISBN (long int), and number of pages (int). Write a function to accept details of a book from the user andstore them in a structure variable. 
+## 4. Create a structure to represent a book with the following members: title (string), author (string), ISBN (long int), and number of pages (int). Write a function to accept details of a book from the user andstore them in a structure variable.
 ```c
 
 ```

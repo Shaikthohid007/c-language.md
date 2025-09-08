@@ -172,7 +172,7 @@ int main(){
     return 0;
 }
 ```
-## 11. Implement a function that takes a structure representing a date (day, month, year) and checks if the date is valid (e.g., not exceeding the number of days in a month). 
+## 11. Implement a function that takes a structure representing a date (day, month, year) and checks if the date is valid (e.g., not exceeding the number of days in a month).
 ## 12. Define a union to represent a shape. The union can hold the dimensions of different shapes like cicle (radius), rectangle (length, breadth), or triangle (base, height). Write functions to calculate the area of each shape based on the type stored in the union. 
  ## 13. Define a structure to represent a playing card with suit (enum) and rank (integer). Write a function to generate a random playing card and another function to print the card's details. 
 ## 14. Implement a function that takes a structure representing a time (hours, minutes, seconds) and performs basic time arithmetic (e.g., adding two time durations). 

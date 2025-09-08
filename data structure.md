@@ -325,5 +325,174 @@ int main(){
         return 0;
 }
 ```
+## 8.. Write a function to count the number of occurrences of an element in a single linked list.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+        int data;
+        struct node *next;
+};
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
 
+        struct node *second=malloc(sizeof(struct node));
+        second->data=20;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=10;
+        third->next=NULL;
+
+        second->next=third;
+
+        struct node*last=malloc(sizeof(struct node));
+        last->data=30;
+        last->next=NULL;
+
+        third->next=last;
+
+        int key,count;
+
+        scanf("%d",&key);
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                if(temp->data==key){
+                        count++;
+                }
+                temp=temp->next;
+        }
+        printf("NULL\n");
+        printf("%d and %d\n",key,count);
+
+        return  0;
+}
+```
+## 9.Write a function to find the smallest and largest element of a single linked list.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=30;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=1;
+        third->next=NULL;
+
+        second->next=third;
+
+        struct node *four=malloc(sizeof(struct  node));
+        four->data=23;
+        four->next=NULL;
+
+        third->next=four;
+
+        struct node *last=malloc(sizeof(struct node));
+        last->data=9;
+        last->next=NULL;
+
+        four->next=last;
+
+        int large=head->data;
+        int small=head->data;
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                if(temp->data>large){
+                        large=temp->data;
+                }
+                if(temp->data<small){
+                        small=temp->data;
+                }
+
+                temp=temp->next;
+        }
+        printf("NULL\n");
+        printf("larg=%d small=%d\n",large,small);
+        return 0;
+}
+```
+## 10.Write a function to create a copy of a single linked list.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=20;
+        head->next=NULL;
+
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=30;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        struct node *newhead=NULL,*tail=NULL;
+        temp=head;
+
+        while(temp!=NULL){
+        struct node *newnode=malloc(sizeof(struct node));
+        newnode->data=temp->data;
+        newnode->next=NULL;
+
+        if(newhead==NULL){
+                newhead=newnode;
+                tail=newnode;
+        }else{
+
+
+        tail->next=newnode;
+        tail=newnode;
+        }
+        temp=temp->next;
+        }
+
+        temp=newhead;
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+        return 0;
+}
+```
                

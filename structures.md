@@ -220,7 +220,135 @@ int validdate(struct date d){
     return 1;
 }
 ```
-## 12. Define a union to represent a shape. The union can hold the dimensions of different shapes like cicle (radius), rectangle (length, breadth), or triangle (base, height). Write functions to calculate the area of each shape based on the type stored in the union. 
- ## 13. Define a structure to represent a playing card with suit (enum) and rank (integer). Write a function to generate a random playing card and another function to print the card's details. 
-## 14. Implement a function that takes a structure representing a time (hours, minutes, seconds) and performs basic time arithmetic (e.g., adding two time durations). 
-## 15.Create a structure to represent a student enrollment record with student ID (string), course name (string), and grade (character). Write functions to add a new record to an array of structures and to search for a record based on student ID.
+ ## 12. Define a structure to represent a playing card with suit (enum) and rank (integer). Write a function to generate a random playing card and another function to print the card's details. 
+ ```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES };
+
+struct Card {
+    enum Suit suit;
+    int rank;   // 1 = Ace, 2–10 = numbers, 11 = Jack, 12 = Queen, 13 = King
+};
+
+struct Card generateCard() {
+    struct Card c;
+    c.suit = rand() % 4;         // random suit (0–3)
+    c.rank = (rand() % 13) + 1;  // random rank (1–13)
+    return c;
+}
+
+void printCard(struct Card c) {
+    if (c.rank == 1) printf("Ace");
+    else if (c.rank == 11) printf("Jack");
+    else if (c.rank == 12) printf("Queen");
+    else if (c.rank == 13) printf("King");
+    else printf("%d", c.rank);
+
+    printf(" of ");
+
+    if (c.suit == HEARTS) printf("Hearts");
+    else if (c.suit == DIAMONDS) printf("Diamonds");
+    else if (c.suit == CLUBS) printf("Clubs");
+    else printf("Spades");
+
+    printf("\n");
+}
+
+int main() {
+    srand(time(0));  
+
+    struct Card c = generateCard();
+    printf("Random Card: ");
+    printCard(c);
+
+    return 0;
+}
+```
+## 13. Implement a function that takes a structure representing a time (hours, minutes, seconds) and performs basic time arithmetic (e.g., adding two time durations). 
+```c
+#include <stdio.h>
+
+struct Time {
+    int h;
+    int m; 
+    int s; 
+};
+
+struct Time addTime(struct Time t1, struct Time t2) {
+    struct Time result;
+
+    result.s = t1.s + t2.s;
+    result.m = t1.m + t2.m + result.s / 60;
+    result.h = t1.h + t2.h + result.m / 60;
+
+    result.s = result.s % 60;
+    result.m = result.m % 60;
+
+    return result;
+}
+
+int main() {
+    struct Time t1, t2, sum;
+
+    printf("Enter first time (h m s): ");
+    scanf("%d %d %d", &t1.h, &t1.m, &t1.s);
+
+    printf("Enter second time (h m s): ");
+    scanf("%d %d %d", &t2.h, &t2.m, &t2.s);
+
+    sum = addTime(t1, t2);
+
+    printf("Sum of times = %02d:%02d:%02d\n", sum.h, sum.m, sum.s);
+
+    return 0;
+}
+```
+## 14.Create a structure to represent a student enrollment record with student ID (string), course name (string), and grade (character). Write functions to add a new record to an array of structures and to search for a record based on student ID.
+```c
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    char id[20];
+    char course[50];
+    char grade;
+};
+
+// search function
+int searchRecord(struct Student arr[], int n, char searchID[]) {
+    for (int i = 0; i < n; i++) {
+        if (strcmp(arr[i].id, searchID) == 0) {
+            printf("ID: %s, Course: %s, Grade: %c\n",
+                   arr[i].id, arr[i].course, arr[i].grade);
+            return 1; // found
+        }
+    }
+    return 0; // not found
+}
+
+int main() {
+    struct Student records[100];
+    int n;
+
+    printf("How many students? ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter ID, Course, Grade: ");
+        scanf("%s %s %c", records[i].id, records[i].course, &records[i].grade);
+    }
+
+    char id[20];
+    printf("Enter ID to search: ");
+    scanf("%s", id);
+
+    if (!searchRecord(records, n, id)) {
+        printf("Record not found!\n");
+    }
+
+    return 0;
+}
+```

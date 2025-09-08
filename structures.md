@@ -64,10 +64,112 @@ int equal(struct point p1,struct point p2){
 ```
 ## 4. Create a structure to represent a book with the following members: title (string), author (string), ISBN (long int), and number of pages (int). Write a function to accept details of a book from the user andstore them in a structure variable.
 ```c
+#include <stdio.h>
 
+struct book {
+    char name[10];
+    char author[10];
+    long int num;
+};
+
+void display(struct book b); 
+
+int main() {
+    struct book b;
+
+    scanf("%s %s %ld", b.name, b.author, &b.num);
+
+    display(b);
+    return 0;
+}
+
+void display(struct book b) {
+    printf("%s %s %ld", b.name, b.author, b.num);
+}
 ```
-## 5 Define a union to represent the size of a product, which can be specified in centimeters, inches, or feet. Write a function to convert the size from one unit to another (e.g., centimeters to inches). 
+## 5 Define a union to represent the size of a product, which can be specified in centimeters, inches, or feet. Write a function to convert the size from one unit to another (e.g., centimeters to inches).
+```c
+#include <stdio.h>
+
+// union to hold only one size at a time
+union Size {
+    float cm;
+    float inch;
+    float feet;
+};
+
+// convert function
+void convert(union Size s, char type) {
+    if (type == 'c') {  // input is centimeters
+        printf("In cm   : %.2f\n", s.cm);
+        printf("In inch : %.2f\n", s.cm / 2.54);
+        printf("In feet : %.2f\n", s.cm / 30.48);
+    }
+    else if (type == 'i') { // input is inches
+        printf("In inch : %.2f\n", s.inch);
+        printf("In cm   : %.2f\n", s.inch * 2.54);
+        printf("In feet : %.2f\n", s.inch / 12.0);
+    }
+    else if (type == 'f') { // input is feet
+        printf("In feet : %.2f\n", s.feet);
+        printf("In inch : %.2f\n", s.feet * 12.0);
+        printf("In cm   : %.2f\n", s.feet * 30.48);
+    }
+    else {
+        printf("Invalid type!\n");
+    }
+}
+
+int main() {
+    union Size s;
+    char type;
+
+    printf("Enter type (c = cm, i = inch, f = feet): ");
+    scanf(" %c", &type);
+
+    if (type == 'c')
+        scanf("%f", &s.cm);
+    else if (type == 'i')
+        scanf("%f", &s.inch);
+    else if (type == 'f')
+        scanf("%f", &s.feet);
+
+  convert(s, type);
+
+    return 0;
+}
+```
 ## 6. Define a structure to represent a date with day, month, and year (all integers). Write a function to wcheck if a given year is a leap year. 
+```c
+#include <stdio.h>
+
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+int isLeapYear(int year) {
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+        return 1; // leap year
+    else
+        return 0; // not leap
+}
+
+int main() {
+    struct Date d;
+
+    printf("Enter day month year: ");
+    scanf("%d %d %d", &d.day, &d.month, &d.year);
+
+    if (isLeapYear(d.year))
+        printf("%d is a Leap Year\n", d.year);
+    else
+        printf("%d is NOT a Leap Year\n", d.year);
+
+    return 0;
+}
+```
 ## 7. Define a structure to represent a complex number ith real and imaginary parts (both floats). Write a function to add two complex numbers represented by structures. 
 ```c
 #include<stdio.h>

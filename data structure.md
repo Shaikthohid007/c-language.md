@@ -495,4 +495,158 @@ int main(){
         return 0;
 }
 ```
-               
+## 11.Write a function to move the largest element to the end of a single linked list.           
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=50;
+        head->next=NULL;
+
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=20;
+        third->next=NULL;
+
+        second->next=third;
+
+        struct node *last=malloc(sizeof(struct node));
+        last->data=30;
+        last->next=NULL;
+
+        third->next=last;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        struct node *maxnode=head,*premax=NULL;
+        struct node *pre=NULL;
+
+        temp=head;
+
+        while(temp){
+                if(temp->data>maxnode->data){
+                        maxnode=temp;
+                        premax=pre;
+                }
+                pre=temp;
+                temp=temp->next;
+        }
+
+        if(maxnode!=NULL)
+                premax->next=maxnode->next;
+        else
+                head=maxnode->next;
+
+        pre->next=maxnode;
+        maxnode->next=NULL;
+
+
+        printf("after\n");
+
+        temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        return 0;
+}
+```
+## 12.. Write a function to move the smallest element to the beginning of a single linked list.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=40;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=10;
+        head->next=NULL;
+
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=20;
+        third->next=NULL;
+
+        second->next=third;
+
+        struct node *last=malloc(sizeof(struct node));
+        last->data=30;
+        last->next=NULL;
+
+        third->next=last;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        struct node *mimnode=head,*premim=NULL;
+        struct node *pre=NULL;
+
+        temp=head;
+
+        while(temp){
+                if(temp->data<mimnode->data){
+                        mimnode=temp;
+                        premim=pre;
+                }
+                pre=temp;
+                temp=temp->next;
+        }
+
+
+        if(mimnode!=NULL)
+                premim->next=mimnode->next;
+        else
+                head=mimnode->next;
+
+        pre->next=mimnode;
+        mimnode->next=NULL;
+
+
+        printf("after\n");
+
+        temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        return 0;
+}
+```
+## 13.. Write a program to remove first node of the list and insert it at the end, without changing info part of any node.
+ 

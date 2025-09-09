@@ -649,4 +649,119 @@ int main(){
 }
 ```
 ## 13.. Write a program to remove first node of the list and insert it at the end, without changing info part of any node.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=30;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=10;
+        second->next=NULL;
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=20;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+
+        printf("NULL\n");
+
+        struct node *old=head;
+        head=head->next;
+
+        temp=head;
+        while(temp->next!=NULL){
+                temp=temp->next;
+        }
+
+        temp->next=old;
+        old->next=NULL;
+
+        temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        return 0;
+}
+```
+## 14.Write a program to remove the last node of the list and insert it in the beginning, without changing info part of any node.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=20;
+        second->next=NULL;
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=30;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *last=malloc(sizeof(struct node));
+        last->data=40;
+        last->next=NULL;
+        third->next=last;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+
+        printf("NULL\n");
+
+
+        struct node *secondlast=head;
+        while(secondlast->next->next!=NULL){
+        secondlast=secondlast->next;
+        }
+
+        struct node *lastnode=secondlast->next;
+        secondlast->next=NULL;
+        lastnode->next=head;
+        head=lastnode;
+
+        temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        return 0;
+}
+```
+ 
  

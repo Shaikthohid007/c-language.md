@@ -1484,12 +1484,645 @@ while(temp!=NULL){
 return 0;
 }
 ```
-## 22.Search an employee node in the linked list 
-## 23.Sort an employee node by first name 
-## 24.Sort an employee node by last name done pending 
-## 25.Sort an employee node by state 
-## 26.Sort an employee node by employee number 
-## 27.Sort an employee node by city done pending 
+## 22.Search an employee node in the linked list.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct personal{
+        char firstname[10];
+        char lastname[10];
+        int emplno;
+};
+struct employe {
+        struct personal *per;
+        struct employe *next;
+};
+int main(){
+        struct employe *head=malloc(sizeof(struct employe));
+        head->per=malloc(sizeof(struct personal));
+        strcpy(head->per->firstname,"shaik");
+        strcpy(head->per->lastname,"thohid");
+        head->per->emplno=120;
+
+
+         struct employe *second=malloc(sizeof(struct employe));
+         second->per=malloc(sizeof(struct personal));
+         strcpy(second->per->firstname,"shaik");
+        strcpy(second->per->lastname,"safna");
+        second->per->emplno=121;
+
+        head->next=second;
+
+        struct employe *third=malloc(sizeof(struct employe));
+         third->per=malloc(sizeof(struct personal));
+
+         strcpy(third->per->firstname,"upati");
+        strcpy(third->per->lastname,"rajesh");
+        third->per->emplno=122;
+      third->next=NULL;
+       second->next=third;
+
+
+
+
+int emp,found=0;
+scanf("%d",&emp);
+ struct employe *temp=head;
+while(temp!=NULL){
+ if(temp->per->emplno==emp){
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        found=1;
+        break;
+ }
+ temp=temp->next;
+}
+
+if(found==0){
+        printf("employe not found\n");
+}
+return 0;
+}
+```
+## 23.Sort an employee node by first name.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct personal{
+        char firstname[10];
+        char lastname[10];
+        int emplno;
+};
+
+struct address{
+        char city[10];
+        char state[10];
+        int streetno;
+        int houseno;
+};
+
+struct employe{
+        struct personal *per;
+        struct address *adr;
+        struct employe *next;
+};
+
+int main(){
+
+        struct employe *head=malloc(sizeof(struct employe));
+        head->per=malloc(sizeof(struct personal));
+        head->adr=malloc(sizeof(struct address));
+        strcpy(head->per->firstname,"shaik");
+        strcpy(head->per->lastname,"thohid");
+        head->per->emplno=120;
+
+        strcpy(head->adr->city,"nellore");
+        strcpy(head->adr->state,"AP");
+        head->adr->streetno=10;
+        head->adr->houseno=17;
+        head->next=NULL;
+
+
+         struct employe *second=malloc(sizeof(struct employe));
+         second->per=malloc(sizeof(struct personal));
+         second->adr=malloc(sizeof(struct address));
+         strcpy(second->per->firstname,"shaik");
+        strcpy(second->per->lastname,"safna");
+        second->per->emplno=121;
+
+        strcpy(second->adr->city,"sr nagar");
+        strcpy(second->adr->state,"TS");
+        second->adr->streetno=29;
+        second->adr->houseno=18;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct employe *third=malloc(sizeof(struct employe));
+         third->per=malloc(sizeof(struct personal));
+         third->adr=malloc(sizeof(struct address));
+         strcpy(third->per->firstname,"upati");
+        strcpy(third->per->lastname,"rajesh");
+        third->per->emplno=121;
+
+        strcpy(third->adr->city,"crompet");
+        strcpy(third->adr->state,"TN");
+        third->adr->streetno=18;
+        third->adr->houseno=29;
+        third->next=NULL;
+        second->next=third;
+
+       struct employe *temp=head;
+
+          while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d , %d,%s,%s\n",
+                        temp->adr->houseno,
+                        temp->adr->streetno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+
+
+struct employe *i,*j;
+for(i=head;i!=NULL;i=i->next){
+        for(j=i->next;j!=NULL;j=j->next){
+                if(strcmp(i->per->firstname,j->per->firstname)>0){
+
+                        struct personal tp=*(i->per);
+                        *(i->per)=*(j->per);
+                        *(j->per)=tp;
+
+                        struct address ta=*(i->adr);
+                        *(i->adr)=*(j->adr);
+                        *(j->adr)=ta;
+                }
+        }
+}
+
+printf("after swaping\n");
+printf("\n");
+
+temp=head;
+while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d %d %s %s\n",
+                        temp->adr->streetno,
+                        temp->adr->houseno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+}
+```
+## 24.Sort an employee node by last name done pending.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct personal{
+        char firstname[10];
+        char lastname[10];
+        int emplno;
+};
+
+struct address{
+        char city[10];
+        char state[10];
+        int streetno;
+        int houseno;
+};
+
+struct employe{
+        struct personal *per;
+        struct address *adr;
+        struct employe *next;
+};
+
+int main(){
+
+        struct employe *head=malloc(sizeof(struct employe));
+        head->per=malloc(sizeof(struct personal));
+        head->adr=malloc(sizeof(struct address));
+        strcpy(head->per->firstname,"shaik");
+        strcpy(head->per->lastname,"thohid");
+        head->per->emplno=120;
+
+        strcpy(head->adr->city,"nellore");
+        strcpy(head->adr->state,"AP");
+        head->adr->streetno=10;
+        head->adr->houseno=17;
+        head->next=NULL;
+
+
+         struct employe *second=malloc(sizeof(struct employe));
+         second->per=malloc(sizeof(struct personal));
+         second->adr=malloc(sizeof(struct address));
+         strcpy(second->per->firstname,"shaik");
+        strcpy(second->per->lastname,"safna");
+        second->per->emplno=121;
+
+        strcpy(second->adr->city,"sr nagar");
+        strcpy(second->adr->state,"TS");
+        second->adr->streetno=29;
+        second->adr->houseno=18;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct employe *third=malloc(sizeof(struct employe));
+         third->per=malloc(sizeof(struct personal));
+         third->adr=malloc(sizeof(struct address));
+         strcpy(third->per->firstname,"upati");
+        strcpy(third->per->lastname,"rajesh");
+        third->per->emplno=121;
+
+        strcpy(third->adr->city,"crompet");
+        strcpy(third->adr->state,"TN");
+        third->adr->streetno=18;
+        third->adr->houseno=29;
+        third->next=NULL;
+        second->next=third;
+
+       struct employe *temp=head;
+
+          while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d , %d,%s,%s\n",
+                        temp->adr->houseno,
+                        temp->adr->streetno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+
+
+struct employe *i,*j;
+for(i=head;i!=NULL;i=i->next){
+        for(j=i->next;j!=NULL;j=j->next){
+                if(strcmp(i->per->lastname,j->per->lastname)>0){
+
+                        struct personal tp=*(i->per);
+                        *(i->per)=*(j->per);
+                        *(j->per)=tp;
+
+                        struct address ta=*(i->adr);
+                        *(i->adr)=*(j->adr);
+                        *(j->adr)=ta;
+                }
+        }
+}
+
+printf("after swaping\n");
+printf("\n");
+
+temp=head;
+while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d %d %s %s\n",
+                        temp->adr->streetno,
+                        temp->adr->houseno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+}
+```
+## 25.Sort an employee node by state.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct personal{
+        char firstname[10];
+        char lastname[10];
+        int emplno;
+};
+
+struct address{
+        char city[10];
+        char state[10];
+        int streetno;
+        int houseno;
+};
+
+struct employe{
+        struct personal *per;
+        struct address *adr;
+        struct employe *next;
+};
+
+int main(){
+
+        struct employe *head=malloc(sizeof(struct employe));
+        head->per=malloc(sizeof(struct personal));
+        head->adr=malloc(sizeof(struct address));
+        strcpy(head->per->firstname,"shaik");
+        strcpy(head->per->lastname,"thohid");
+        head->per->emplno=120;
+
+        strcpy(head->adr->city,"nellore");
+        strcpy(head->adr->state,"MP");
+        head->adr->streetno=10;
+        head->adr->houseno=17;
+        head->next=NULL;
+
+
+         struct employe *second=malloc(sizeof(struct employe));
+         second->per=malloc(sizeof(struct personal));
+         second->adr=malloc(sizeof(struct address));
+         strcpy(second->per->firstname,"shaik");
+        strcpy(second->per->lastname,"safna");
+        second->per->emplno=121;
+
+        strcpy(second->adr->city,"sr nagar");
+        strcpy(second->adr->state,"TS");
+        second->adr->streetno=29;
+        second->adr->houseno=18;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct employe *third=malloc(sizeof(struct employe));
+         third->per=malloc(sizeof(struct personal));
+         third->adr=malloc(sizeof(struct address));
+         strcpy(third->per->firstname,"upati");
+        strcpy(third->per->lastname,"rajesh");
+        third->per->emplno=121;
+
+        strcpy(third->adr->city,"crompet");
+        strcpy(third->adr->state,"BR");
+        third->adr->streetno=18;
+        third->adr->houseno=29;
+        third->next=NULL;
+        second->next=third;
+
+       struct employe *temp=head;
+
+          while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d , %d,%s,%s\n",
+                        temp->adr->houseno,
+                        temp->adr->streetno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+
+
+struct employe *i,*j;
+for(i=head;i!=NULL;i=i->next){
+        for(j=i->next;j!=NULL;j=j->next){
+                if(strcmp(i->adr->state,j->adr->state)>0){
+
+                        struct personal tp=*(i->per);
+                        *(i->per)=*(j->per);
+                        *(j->per)=tp;
+
+                        struct address ta=*(i->adr);
+                        *(i->adr)=*(j->adr);
+                        *(j->adr)=ta;
+                }
+        }
+}
+
+printf("after swaping\n");
+printf("\n");
+
+temp=head;
+while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d %d %s %s\n",
+                        temp->adr->streetno,
+                        temp->adr->houseno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+ }
+}
+```
+## 26.Sort an employee node by employee number .
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct personal{
+        char firstname[10];
+        char lastname[10];
+        int emplno;
+};
+
+struct address{
+        char city[10];
+        char state[10];
+        int streetno;
+        int houseno;
+};
+
+struct employe{
+        struct personal *per;
+        struct address *adr;
+        struct employe *next;
+};
+
+int main(){
+
+        struct employe *head=malloc(sizeof(struct employe));
+        head->per=malloc(sizeof(struct personal));
+        head->adr=malloc(sizeof(struct address));
+        strcpy(head->per->firstname,"shaik");
+        strcpy(head->per->lastname,"thohid");
+        head->per->emplno=12;
+
+        strcpy(head->adr->city,"nellore");
+        strcpy(head->adr->state,"MP");
+        head->adr->streetno=10;
+        head->adr->houseno=17;
+        head->next=NULL;
+
+
+         struct employe *second=malloc(sizeof(struct employe));
+         second->per=malloc(sizeof(struct personal));
+         second->adr=malloc(sizeof(struct address));
+         strcpy(second->per->firstname,"shaik");
+        strcpy(second->per->lastname,"safna");
+        second->per->emplno=71;
+
+        strcpy(second->adr->city,"sr nagar");
+        strcpy(second->adr->state,"TS");
+        second->adr->streetno=29;
+        second->adr->houseno=18;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct employe *third=malloc(sizeof(struct employe));
+         third->per=malloc(sizeof(struct personal));
+         third->adr=malloc(sizeof(struct address));
+         strcpy(third->per->firstname,"upati");
+        strcpy(third->per->lastname,"rajesh");
+        third->per->emplno=21;
+
+        strcpy(third->adr->city,"crompet");
+        strcpy(third->adr->state,"BR");
+        third->adr->streetno=18;
+        third->adr->houseno=29;
+        third->next=NULL;
+        second->next=third;
+
+       struct employe *temp=head;
+
+          while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d , %d,%s,%s\n",
+                        temp->adr->houseno,
+                        temp->adr->streetno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+
+
+struct employe *i,*j;
+for(i=head;i!=NULL;i=i->next){
+        for(j=i->next;j!=NULL;j=j->next){
+                if(i->per->emplno>j->per->emplno){
+
+                        struct personal tp=*(i->per);
+                        *(i->per)=*(j->per);
+                        *(j->per)=tp;
+
+                        struct address ta=*(i->adr);
+                        *(i->adr)=*(j->adr);
+                        *(j->adr)=ta;
+                }
+        }
+}
+
+printf("after swaping\n");
+printf("\n");
+
+temp=head;
+while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d %d %s %s\n",
+                        temp->adr->streetno,
+                        temp->adr->houseno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+}
+```
+## 27.Sort an employee node by city done pending .
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct personal{
+        char firstname[10];
+        char lastname[10];
+        int emplno;
+};
+
+struct address{
+        char city[10];
+        char state[10];
+        int streetno;
+        int houseno;
+};
+
+struct employe{
+        struct personal *per;
+        struct address *adr;
+        struct employe *next;
+};
+
+int main(){
+
+        struct employe *head=malloc(sizeof(struct employe));
+        head->per=malloc(sizeof(struct personal));
+        head->adr=malloc(sizeof(struct address));
+        strcpy(head->per->firstname,"shaik");
+        strcpy(head->per->lastname,"thohid");
+        head->per->emplno=12;
+
+        strcpy(head->adr->city,"nellore");
+        strcpy(head->adr->state,"MP");
+        head->adr->streetno=10;
+        head->adr->houseno=17;
+        head->next=NULL;
+
+
+         struct employe *second=malloc(sizeof(struct employe));
+         second->per=malloc(sizeof(struct personal));
+         second->adr=malloc(sizeof(struct address));
+         strcpy(second->per->firstname,"shaik");
+        strcpy(second->per->lastname,"safna");
+        second->per->emplno=71;
+
+        strcpy(second->adr->city,"sr nagar");
+        strcpy(second->adr->state,"TS");
+        second->adr->streetno=29;
+        second->adr->houseno=18;
+        second->next=NULL;
+
+        head->next=second;
+
+        struct employe *third=malloc(sizeof(struct employe));
+         third->per=malloc(sizeof(struct personal));
+         third->adr=malloc(sizeof(struct address));
+         strcpy(third->per->firstname,"upati");
+        strcpy(third->per->lastname,"rajesh");
+        third->per->emplno=21;
+
+        strcpy(third->adr->city,"crompet");
+        strcpy(third->adr->state,"BR");
+        third->adr->streetno=18;
+        third->adr->houseno=29;
+        third->next=NULL;
+        second->next=third;
+
+       struct employe *temp=head;
+
+          while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d , %d,%s,%s\n",
+                        temp->adr->houseno,
+                        temp->adr->streetno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+
+
+struct employe *i,*j;
+for(i=head;i!=NULL;i=i->next){
+        for(j=i->next;j!=NULL;j=j->next){
+                if(strcmp(i->adr->city,j->adr->city)>0){
+
+                        struct personal tp=*(i->per);
+                        *(i->per)=*(j->per);
+                        *(j->per)=tp;
+
+                        struct address ta=*(i->adr);
+                        *(i->adr)=*(j->adr);
+                        *(j->adr)=ta;
+                }
+        }
+}
+
+printf("after swaping\n");
+printf("\n");
+
+temp=head;
+while(temp!=NULL){
+        printf("empno:%d\n",temp->per->emplno);
+        printf("name:%s %s\n",temp->per->firstname,temp->per->lastname);
+        printf("address:%d %d %s %s\n",
+                        temp->adr->streetno,
+                        temp->adr->houseno,
+                        temp->adr->city,
+                        temp->adr->state);
+        temp=temp->next;
+}
+}
 ## 28. Delete an employee node by first name 
 ## 29. Delete an employee node by last name 
 ## 30. Delete an employee node by stat 

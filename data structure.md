@@ -2983,4 +2983,244 @@ while(temp!=NULL){
 return 0;
  }
 ```
- 
+## 35.Insert a node at the end without using tail pointer.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+        int data;
+        struct node *next;
+};
+
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=20;
+        second->next=NULL;
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=30;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *newnode=malloc(sizeof(struct node));
+        newnode->data=23;
+        newnode->next=NULL;
+
+        struct node *temp=head;
+        while(temp->next!=NULL){
+                temp=temp->next;
+
+        }
+
+        temp->next=newnode;
+
+        temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+
+
+
+
+        printf("NULL\n");
+
+
+        return 0;
+}
+```
+## 36.Delete all nodes with a given key (not just first occurrence).
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+        int data;
+        struct node *next;
+};
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=12;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=38;
+        second->next=NULL;
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node));
+        third->data=38;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *four=malloc(sizeof(struct node));
+        four->data=94;
+        four->next=NULL;
+        third->next=four;
+
+        struct node *temp=head;
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        int key;
+        scanf("%d",&key);
+
+                struct node *prev=NULL;
+
+        temp=head;
+
+        while(temp!=NULL){
+                if(temp->data==key){
+                        if(prev==NULL){
+                                head=temp->next;
+                                free(temp);
+                                temp=head;
+                                } else {
+                                        prev->next=temp->next;
+                                        free(temp);
+                                        temp=prev->next;
+                                }
+                }       else
+                        {
+                                prev=temp;
+                                temp=temp->next;
+                        }
+                }
+
+        temp=head;
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+        return 0;
+
+}
+```
+## 37.Find the middle element of a linked list (slow–fast pointer).
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+        int data;
+        struct node *next;
+};
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=20;
+        second->next=NULL;
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node ));
+        third->data=30;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *four=malloc(sizeof(struct node));
+        four->data=40;
+        four->next=NULL;
+        third->next=four;
+
+        struct node *last=malloc(sizeof(struct node));
+        last->data=50;
+        last->next=NULL;
+        four->next=last;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+
+        struct node *slow=head;
+        struct node *fast=head;
+
+        while(fast!=NULL && fast->next!=NULL){
+                slow=slow->next;
+                fast=fast->next->next;
+        }
+
+        temp=head;
+        temp=temp->next;
+
+        printf("%d\n",slow->data);
+        printf("%d\n",fast->data);
+        return 0;
+}
+```
+## 37.Detect a cycle in a linked list (Floyd’s cycle detection).
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+        int data;
+        struct node *next;
+};
+int main(){
+        struct node *head=malloc(sizeof(struct node));
+        head->data=10;
+        head->next=NULL;
+
+        struct node *second=malloc(sizeof(struct node));
+        second->data=20;
+        second->next=NULL;
+        head->next=second;
+
+        struct node *third=malloc(sizeof(struct node ));
+        third->data=30;
+        third->next=NULL;
+        second->next=third;
+
+        struct node *four=malloc(sizeof(struct node));
+        four->data=40;
+        four->next=NULL;
+        third->next=four;
+
+        struct node *last=malloc(sizeof(struct node));
+        last->data=50;
+        last->next=NULL;
+        four->next=last;
+
+        struct node *temp=head;
+
+        while(temp!=NULL){
+                printf("%d->",temp->data);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+
+        temp=head;
+        last->next=third;
+
+
+        struct node *slow=head;
+        struct node *fast=head;
+
+        while(fast!=NULL && fast->next!=NULL){
+                slow=slow->next;
+                fast=fast->next->next;
+       if(slow==fast){
+               printf("cycle is decteted\n");
+               return 0;
+       }
+        }
+        printf("no cycle is deceted\n");
+        return 0;
+}
+```
+## 38.

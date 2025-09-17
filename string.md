@@ -1693,7 +1693,258 @@ int main(){
     return 0;
 }
 ```
- 
+## 80.Implement substring search without using strstr().
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        char sub[100];
+
+        int i,j,k,found;
+
+        fgets(str,sizeof(str),stdin);
+        fgets(sub,sizeof(sub),stdin);
+
+        str[strcspn(str,"\n")]='\0';
+        sub[strcspn(sub,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                k=i;
+                found=1;
+
+                for(j=0;sub[j]!='\0';j++,k++){
+                        if(str[k]=='\0'|| str[k]!=[j]){
+                                found=0;
+                                break;
+                        }
+                }
+                if(found){
+                        printf("%d\n",i);
+                        return 0;
+                }
+        }
+        printf("is not a substring\n");
+        return 0;
+}
+```
+## 81.Implement string compression.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,count;
+
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                count=1;
+                while(str[i]==str[i+1]){
+                        count++;
+                        i++;
+                }
+
+        printf("%c%d",str[i],count);
+        }
+        return 0;
+}
+```
+## 82.Check rotation of a string.
+```c
+   #include<stdio.h>
+#include<string.h>
+int main(){
+        char str1[100],str2[100],temp[100];
+        int i,j,k,found;
+
+        fgets(str1,100,stdin);
+        fgets(str2,100,stdin);
+
+        str1[strcspn(str1,"\n")]='\0';
+        str2[strcspn(str2,"\n")]='\0';
+
+        int len1=strlen(str1);
+        int len2=strlen(str2);
+        if(len1!=len2){
+                printf("not rotation\n");
+                return 0;
+        }
+
+        strcpy(temp,str1);
+        strcmp(temp,str1);
+
+        for(i=0;temp[i]!='\0';i++){
+                k=i;
+                found=1;
+                for(j=0;str2[j]!='\0';j++,k++){
+                        if(temp[k]=='\0'|| temp[k]!=str2[j]){
+                                found=0;
+                                break;
+                        }
+                }
+                if(found){
+                        printf("yes ,rotated\n");
+                return 0;
+                }
+
+        }
+        printf("no,rotation\n");
+        return 0;
+}
+```
+## 83.Count number of occurrences of a substring in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100],sub[100];
+        int i,k,j,found,count=0;
+
+        fgets(str,sizeof(str),stdin);
+        fgets(sub,sizeof(sub),stdin);
+        str[strcspn(str,"\n")]='\0';
+        sub[strcspn(sub,"\n")]='\0';
+
+        int len=strlen(str);
+        int len2=strlen(sub);
+
+        for(i=0;i<=len-len2;i++){
+                k=i;
+                found=1;
+                for(j=0;j<len2;j++,k++){
+                        if(str[k]!=str[j]){
+                                found=0;
+                                break;
+                        }
+                }
+                if(found){
+                        count++;
+                        }
+        }
+        printf("%d\n",count);
+        return 0;
+}
+```
+## 84.Convert a string to integer without using atoi().
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,num=0;
+
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                char ch=str[i];
+                if(ch>='0'&&ch<='9'){
+                        int digit=ch-'0';
+                        num=num*10+digit;
+                }
+        }
+        printf("%d\n",num);
+        return 0;
+}
+```
+## 85.Find first non-repeating character in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,found,j;
+
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                found=0;
+                for(j=0;str[j]!='\0';j++){
+                        if(i!=j&&str[i]==str[j]){
+                                found=1;
+                                break;
+                                }
+                        }
+                if(found==0){
+                        printf("%c\n",str[i]);
+                        return 0;
+                }
+        }
+        return 0;
+}
+```
+## 86.Remove all spaces from a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        int i,j=0;
+
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        for(i=0;str[i]!='\0';i++){
+                if(str[i]!=' '){
+                        str[j++]=str[i];
+                }
+        }
+        str[j]='\0';
+        printf("%s\n",str);
+        return 0;
+}
+```
+## 87.Implement substring replacement in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+        char str[100];
+        char old[100];
+        char new[100];
+        char result[100];
+        int i=0,j,k,found;
+        int pos=0;
+
+
+        fgets(str,sizeof(str),stdin);
+        fgets(old,sizeof(old),stdin);
+        fgets(new,sizeof(new),stdin);
+
+        str[strcspn(str,"\n")]='\0';
+        old[strcspn(old,"\n")]='\0';
+        new[strcspn(new,"\n")]='\0';
+
+        int oldlen=strlen(old);
+        int newlen=strlen(new);
+
+        while(str[i]!='\0'){
+                found=1;
+                for(j=0;old[j]!='\0';j++){
+                        if(str[i+j]!=old[j]){
+                                found=0;
+                                break;
+                        }
+                }
+                if(found){
+
+                        for(k=0;k<newlen;k++){
+
+                        result[pos++]=new[k];
+                        }
+                        i=i+oldlen;
+                }else{
+                        result[pos++]=str[i++];
+        }
+        }
+        result[pos]='\0';
+        printf("%s\n",result);
+        return 0;
+}
+```
 
 
 

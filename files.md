@@ -62,13 +62,113 @@ int main(){
 ```
  ## 3. Develop a program to read a text file and count the number of words in it.
  ```c
+#include<stdio.h>
+int main(){
+        FILE *fp=NULL;
+        char str[100];
+        int count=0;
+        int i;
 
+        fp=fopen("abc.txt","r");
+        if(fp==NULL){
+                printf("error\n");
+                return 0;
+        }
+
+        while(fgets(str,100,fp)!=NULL){
+                for(i=0;str[i]!='\0';i++){
+                        if(str[i]== ' ' || str[i]=='\n'){
+                                count++;
+                        }
+                }
+        }
+        fclose(fp);
+        printf("count=%d\n",count);
+        return 0;
+}
+```
 ##  4. Implement a file management system that allows users to create, read, update, and delete  files using C functions.
  ## 5. Write a program that checks whether a file exists or not.
+ ```c
+#include<stdio.h>
+int main(){
+        FILE *fp=NULL;
+
+        fp=fopen("abc.txt","r");
+
+        if(fp==NULL){
+                printf("file doesn't exit\n");
+        } else {
+                printf("file exit\n");
+        }
+        fclose(fp);
+        return 0;
+}
+```
  ## 6. Create a C program to rename a file.
+ ```c
+#include<stdio.h>
+int main(){
+        char oldname[10],newname[10];
+
+        printf("enter the oldfile\n");
+        scanf("%s",oldname);
+
+        printf("enter the newfile\n");
+        scanf("%s",newname);
+
+        if(rename(oldname,newname)==0){
+                printf("hogaya\n");
+        } else {
+                printf("hotani\n");
+        }
+
+        return 0;
+}
+```
 ##  7. Develop a C program that handles errors while opening files and prints appropriate error messages.
+```c
+#include<stdio.h>
+int main(){
+        FILE *fp=NULL;
+
+        fp=fopen("mat.txt","r");
+        if(fp==NULL){
+                printf("file doesn't exit\n");
+        } else {
+                printf("file exit\n");
+        fclose(fp);
+        }
+        return 0;
+}
+```
 ##  8. Write a program that reads a file line by line and prints each line along with its line number.
+```c
+#include<stdio.h>
+int main(){
+        FILE *fp;
+        char line[10];
+        int line_count=1;
+
+        fp=fopen("bca.txt","r");
+        if(fp==NULL){
+                printf("error\n");
+                return 0;
+        }
+
+        while(fgets(line,10,fp)){
+                printf("%d %s",line_count,line);
+        line_count++;
+        }
+
+        fclose(fp);
+        printf("read completd\n");
+        return 0;
+}
+```
  ## 9. Create a program to delete a specific line from a text file.
+ ```c
+
  ## 10. Write a C program to store and retrieve student records using binary file handling.
  ## 11. Implement a program that copies the contents of one binary file to another.
 ##  12. Develop a program that reads a binary file containing integer data and finds the maximum and minimum values.

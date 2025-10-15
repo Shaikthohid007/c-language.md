@@ -168,9 +168,102 @@ int main(){
 ```
  ## 9. Create a program to delete a specific line from a text file.
  ```c
+#include<stdio.h>
+int main(){
+        FILE *fp,*temp;
+        char str[100];
+        int count=1;
+        int del_str;
 
+        fp=fopen("bca.txt","r");
+        if(fp==NULL){
+                printf("error\n");
+                return 0;
+        }
+
+        temp=fopen("temp.txt","w");
+        if(temp==NULL){
+                printf("error\n");
+                return 0;
+        }
+        printf("enter the del \n");
+        scanf("%d",&del_str);
+
+        while(fgets(str,sizeof(str),fp)){
+                if(count!=del_str){
+                        fprintf(temp,"%s",str);
+                } else {
+                        printf("%d->%s",count,str);
+                }
+                count++;
+        }
+                fclose(fp);
+                fclose(temp);
+        remove("bca.txt");
+        rename("temp.txt","bca.txt");
+        return 0;
+}
+```
  ## 10. Write a C program to store and retrieve student records using binary file handling.
+ ```c
+#include<stdio.h>
+
+struct student {
+        int id;
+        char name[10];
+        float marks;
+};
+
+int main(){
+        FILE *fp;
+        struct student s;
+        int i,n;
+
+
+            fp=fopen("student.data","wb");
+        if(fp==NULL){
+                printf("errror\n");
+                return 0;
+        }
+
+
+        printf("enter the numer the students\n");
+        scanf("%d",&n);
+
+        for(i=0;i<n;i++){
+                printf("ente the students number :%d\n",i+1);
+                printf("ID :");
+                scanf("%d",&s.id);
+                printf("NAME :");
+                scanf("%s",s.name);
+                printf("marks  :");
+                scanf("%f",&s.marks);
+
+                fwrite(&s,sizeof(s),1,fp);
+        }
+        fclose(fp);
+        printf("sucessfully write\n");
+
+
+
+        fp=fopen("student.data","rb");
+        if(fp==NULL){
+                printf("error\n");
+                return 0;
+        }
+
+        printf("print the student data\n");
+
+        while(fread(&s,sizeof(s),1,fp)){
+                printf("ID :%d | name : %s | marks : %.2f\n",s.id, s.name, s.marks);
+        }
+        fclose(fp);
+        printf("sucessfully read\n");
+}
+```
  ## 11. Implement a program that copies the contents of one binary file to another.
+ ```c
+
 ##  12. Develop a program that reads a binary file containing integer data and finds the maximum and minimum values.
 ##  13. Create a program to open a file and move the file pointer to the end of the file and determine the file size.
 ##  14. Write a C program to read the last n lines of a text file.

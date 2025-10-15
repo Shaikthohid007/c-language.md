@@ -261,7 +261,7 @@ int main(){
         printf("sucessfully read\n");
 }
 ```
- ## 11. Implement a program that copies the contents of one binary file to another.
+ ## 11. Implement a program that copies the contents of one binary file to another
  ```c
 
 ##  12. Develop a program that reads a binary file containing integer data and finds the maximum and minimum values.

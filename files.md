@@ -263,8 +263,40 @@ int main(){
 ```
  ## 11. Implement a program that copies the contents of one binary file to another
  ```c
+#include<stdio.h>
+int main(){
+        FILE *fp,*dp;
 
+        char str[100];
+        size_t n;
+
+        fp=fopen("student.data","rb");
+        if(fp==NULL){
+                printf("error\n");
+                return 0;
+        }
+
+        dp=fopen("data.txt","wb");
+        if(dp==NULL){
+                printf("error\n");
+                fclose(dp);
+                return 0;
+        }
+
+        while ((n=fread(str,1,sizeof(str),fp))>0){
+
+                fwrite(str,1,n,dp);
+        }
+        fclose(fp);
+        fclose(dp);
+
+        printf("sucessfully copird\n");
+        return 0;
+}
+```
 ##  12. Develop a program that reads a binary file containing integer data and finds the maximum and minimum values.
+```c
+
 ##  13. Create a program to open a file and move the file pointer to the end of the file and determine the file size.
 ##  14. Write a C program to read the last n lines of a text file.
 ##  15. Implement a program to search for a specific string in a text file and print its line number
